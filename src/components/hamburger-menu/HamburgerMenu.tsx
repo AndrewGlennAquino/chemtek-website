@@ -62,7 +62,7 @@ const DropdownMenu = () => {
   return (
     <motion.div
       aria-label="Dropdown menu"
-      className="lg:hidden bg-smoke shadow w-screen h-80 absolute top-16 left-0 right-0"
+      className="xl:hidden bg-smoke shadow w-screen absolute top-16 left-0 right-0"
       initial="dropdownInitial"
       variants={variants}
       ref={scope}
@@ -119,7 +119,7 @@ const DropdownMenu = () => {
 };
 
 /**
- * Hamburger menu component for device width less than 1024px.
+ * Hamburger menu component for device width less than 1280px.
  * On click, open dropdown menu.
  */
 const HamburgerMenu = () => {
@@ -135,7 +135,7 @@ const HamburgerMenu = () => {
     <>
       <button
         aria-label="Toggle dropdown menu"
-        className="lg:hidden flex justify-center items-center"
+        className="xl:hidden flex justify-center items-center"
         onClick={handleClick}
       >
         {/* Container that holds hamburger menu bars that animates on click */}
