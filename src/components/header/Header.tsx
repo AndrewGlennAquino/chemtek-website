@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-smoke sticky top-0 left-0 right-0">
+    <header className="bg-smoke sticky top-0 left-0 right-0 z-50">
       {/* Header container */}
       <div className="container w-full h-16 mp-default flex justify-between items-center">
         {/* Header logo */}
