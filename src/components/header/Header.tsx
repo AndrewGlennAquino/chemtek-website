@@ -21,9 +21,10 @@ const Header = () => {
       {/* Header container */}
       <div className="container w-full h-16 mp-default flex justify-between items-center">
         {/* Header logo */}
-        <Link to="/chemtek-website">
-          <h1 className="text-chemtek text-3xl font-bold">ChemTek</h1>
-        </Link>
+        <motion.h1
+          className="text-chemtek text-3xl font-bold" whileHover={{ scale: 1.1 }}>
+          <Link to="/chemtek-website">ChemTek</Link>
+        </motion.h1>
 
         {/* Responsive navigation menu */}
         <nav>
