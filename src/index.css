@@ -35,7 +35,7 @@ body {
 
   /* Style for dropdown menu links */
   .dropdown-link {
-    @apply text-lg font-bold;
+    @apply text-lg font-bold mt-1;
   }
 
   /* Style for header contact us button */
