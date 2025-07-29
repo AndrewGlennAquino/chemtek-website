@@ -15,7 +15,6 @@ body {
 
   --color-chemtek: #37841f;
   --color-night: #141414;
-  --color-honeydew: #f1fbee;
   --color-smoke: #f5f5f5;
 }
 
@@ -35,7 +34,7 @@ body {
 
   /* Style for dropdown menu links */
   .dropdown-link {
-    @apply text-lg font-bold mt-1;
+    @apply text-lg font-bold;
   }
 
   /* Style for header contact us button */
