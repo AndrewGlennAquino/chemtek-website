@@ -35,7 +35,7 @@ const Header = () => {
           <div className="hidden xl:flex justify-center items-center gap-8">
             <MotionConfig reducedMotion="user">
               <motion.span
-                className="dropdown-link"
+                className="dropdown-link mt-1"
                 initial="initial"
                 whileHover="animateHover"
               >
@@ -44,7 +44,7 @@ const Header = () => {
               </motion.span>
 
               <motion.span
-                className="dropdown-link"
+                className="dropdown-link mt-1"
                 initial="initial"
                 whileHover="animateHover"
               >
@@ -53,7 +53,7 @@ const Header = () => {
               </motion.span>
 
               <motion.span
-                className="dropdown-link"
+                className="dropdown-link mt-1"
                 initial="initial"
                 whileHover="animateHover"
               >
@@ -62,7 +62,7 @@ const Header = () => {
               </motion.span>
 
               <motion.span
-                className="dropdown-link"
+                className="dropdown-link mt-1"
                 initial="initial"
                 whileHover="animateHover"
               >
