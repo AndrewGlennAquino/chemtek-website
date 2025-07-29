@@ -76,7 +76,7 @@ const Header = () => {
               </motion.span>
 
               <motion.span
-                className="dropdown-link contact-us-button"
+                className="text-lg font-bold contact-us-button"
                 whileHover={{ scale: 1.1 }}
                 variants={variants}
               >
