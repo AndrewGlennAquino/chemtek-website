@@ -1,5 +1,5 @@
 import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
-import { motion, type Variants } from "motion/react";
+import { motion, type Variants, MotionConfig } from "motion/react";
 import { Link } from "react-router";
 
 /**
@@ -32,54 +32,56 @@ const Header = () => {
 
           {/* Links container for device width 1280px and greater */}
           <div className="hidden xl:flex justify-center items-center gap-8">
-            <motion.span
-              className="dropdown-link"
-              initial="initial"
-              whileHover="animateHover"
-            >
-              <Link to="">Home</Link>
-              <motion.div className="link-underline" variants={variants} />
-            </motion.span>
-
-            <motion.span
-              className="dropdown-link"
-              initial="initial"
-              whileHover="animateHover"
-            >
-              <Link to="">Why Choose Us</Link>
-              <motion.div className="link-underline" variants={variants} />
-            </motion.span>
-
-            <motion.span
-              className="dropdown-link"
-              initial="initial"
-              whileHover="animateHover"
-            >
-              <Link to="">Service Area</Link>
-              <motion.div className="link-underline" variants={variants} />
-            </motion.span>
-
-            <motion.span
-              className="dropdown-link"
-              initial="initial"
-              whileHover="animateHover"
-            >
-              <a
-                href="https://financing.approvepayments.com/chemtek"
-                target="_blank"
+            <MotionConfig reducedMotion="user">
+              <motion.span
+                className="dropdown-link"
+                initial="initial"
+                whileHover="animateHover"
               >
-                Equipment Lease/Finance
-              </a>
-              <motion.div className="link-underline" variants={variants} />
-            </motion.span>
+                <Link to="">Home</Link>
+                <motion.div className="link-underline" variants={variants} />
+              </motion.span>
 
-            <motion.span
-              className="dropdown-link contact-us-button"
-              whileHover={{ scale: 1.1 }}
-              variants={variants}
-            >
-              <Link to="">Contact Us</Link>
-            </motion.span>
+              <motion.span
+                className="dropdown-link"
+                initial="initial"
+                whileHover="animateHover"
+              >
+                <Link to="">Why Choose Us</Link>
+                <motion.div className="link-underline" variants={variants} />
+              </motion.span>
+
+              <motion.span
+                className="dropdown-link"
+                initial="initial"
+                whileHover="animateHover"
+              >
+                <Link to="">Service Area</Link>
+                <motion.div className="link-underline" variants={variants} />
+              </motion.span>
+
+              <motion.span
+                className="dropdown-link"
+                initial="initial"
+                whileHover="animateHover"
+              >
+                <a
+                  href="https://financing.approvepayments.com/chemtek"
+                  target="_blank"
+                >
+                  Equipment Lease/Finance
+                </a>
+                <motion.div className="link-underline" variants={variants} />
+              </motion.span>
+
+              <motion.span
+                className="dropdown-link contact-us-button"
+                whileHover={{ scale: 1.1 }}
+                variants={variants}
+              >
+                <Link to="">Contact Us</Link>
+              </motion.span>
+            </MotionConfig>
           </div>
         </nav>
       </div>

@@ -6,6 +6,7 @@ import {
   useAnimate,
   usePresence,
   type Variants,
+  MotionConfig,
 } from "motion/react";
 import { Link } from "react-router";
 
@@ -60,61 +61,63 @@ const DropdownMenu = () => {
   };
 
   return (
-    <motion.div
-      aria-label="Dropdown menu"
-      className="xl:hidden bg-smoke shadow w-screen absolute top-16 left-0 right-0"
-      initial="dropdownInitial"
-      variants={variants}
-      ref={scope}
-    >
-      {/* Dropdown menu container with default margin and padding */}
-      <div className="container mp-default flex flex-col justify-center gap-8">
-        <motion.span
-          className="dropdown-link"
-          initial="linkInitial"
-          variants={variants}
-        >
-          <Link to="">Home</Link>
-        </motion.span>
-
-        <motion.span
-          className="dropdown-link"
-          initial="linkInitial"
-          variants={variants}
-        >
-          <Link to="">Why Choose Us</Link>
-        </motion.span>
-
-        <motion.span
-          className="dropdown-link"
-          initial="linkInitial"
-          variants={variants}
-        >
-          <Link to="">Service Area</Link>
-        </motion.span>
-
-        <motion.span
-          className="dropdown-link"
-          initial="linkInitial"
-          variants={variants}
-        >
-          <a
-            href="https://financing.approvepayments.com/chemtek"
-            target="_blank"
+    <MotionConfig reducedMotion="user">
+      <motion.div
+        aria-label="Dropdown menu"
+        className="xl:hidden bg-smoke shadow w-screen absolute top-16 left-0 right-0"
+        initial="dropdownInitial"
+        variants={variants}
+        ref={scope}
+      >
+        {/* Dropdown menu container with default margin and padding */}
+        <div className="container mp-default flex flex-col justify-center gap-8">
+          <motion.span
+            className="dropdown-link"
+            initial="linkInitial"
+            variants={variants}
           >
-            Equipment Lease/Finance
-          </a>
-        </motion.span>
+            <Link to="">Home</Link>
+          </motion.span>
 
-        <motion.span
-          className="dropdown-link contact-us-button"
-          initial="linkInitial"
-          variants={variants}
-        >
-          <Link to="">Contact Us</Link>
-        </motion.span>
-      </div>
-    </motion.div>
+          <motion.span
+            className="dropdown-link"
+            initial="linkInitial"
+            variants={variants}
+          >
+            <Link to="">Why Choose Us</Link>
+          </motion.span>
+
+          <motion.span
+            className="dropdown-link"
+            initial="linkInitial"
+            variants={variants}
+          >
+            <Link to="">Service Area</Link>
+          </motion.span>
+
+          <motion.span
+            className="dropdown-link"
+            initial="linkInitial"
+            variants={variants}
+          >
+            <a
+              href="https://financing.approvepayments.com/chemtek"
+              target="_blank"
+            >
+              Equipment Lease/Finance
+            </a>
+          </motion.span>
+
+          <motion.span
+            className="dropdown-link contact-us-button"
+            initial="linkInitial"
+            variants={variants}
+          >
+            <Link to="">Contact Us</Link>
+          </motion.span>
+        </div>
+      </motion.div>
+    </MotionConfig>
   );
 };
 
@@ -140,18 +143,20 @@ const HamburgerMenu = () => {
       >
         {/* Container that holds hamburger menu bars that animates on click */}
         <div className="flex flex-col justify-center items-center gap-1">
-          <motion.div
-            className="hamburger-menu-bar"
-            animate={clicked ? { y: 8, rotate: 45 } : undefined}
-          />
-          <motion.div
-            className="hamburger-menu-bar"
-            animate={clicked ? { opacity: 0 } : undefined}
-          />
-          <motion.div
-            className="hamburger-menu-bar"
-            animate={clicked ? { y: -8, rotate: -45 } : undefined}
-          />
+          <MotionConfig reducedMotion="user">
+            <motion.div
+              className="hamburger-menu-bar"
+              animate={clicked ? { y: 8, rotate: 45 } : undefined}
+            />
+            <motion.div
+              className="hamburger-menu-bar"
+              animate={clicked ? { width: 0 } : undefined}
+            />
+            <motion.div
+              className="hamburger-menu-bar"
+              animate={clicked ? { y: -8, rotate: -45 } : undefined}
+            />
+          </MotionConfig>
         </div>
       </button>
 
