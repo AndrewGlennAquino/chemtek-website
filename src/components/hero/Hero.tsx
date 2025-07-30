@@ -1,25 +1,89 @@
+import { motion, MotionConfig, type Variants } from "motion/react";
+
+/**
+ * Hero component for Home page
+ */
 const Hero = () => {
+  // Parent animation variants to stagger children animation
+  const staggerVariants: Variants = {
+    animateFadeIn: {
+      transition: {
+        delayChildren: 0.5,
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  // Animate fade in for hero content
+  const fadeInVariants: Variants = {
+    initial: {
+      y: 10,
+      opacity: 0
+    },
+    animateFadeIn: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
+      }
+    }
+  }
+
   return (
-    <section aria-label="Hero" className="w-full h-screen max-h-192 relative -z-10 overflow-hidden">
+    <section aria-label="Hero" className="h-screen max-h-192 relative">
+      {/* Hero background images and filters */}
+      <div className="bg-[url(./assets/images/hero-image.webp)] bg-cover bg-center w-full h-full absolute inset-0 -z-20" />
+      <div className="bg-gradient-to-b from-chemtek/35 to-transparent w-full h-full absolute inset-0 -z-10" />
+      <div className="bg-night/75 w-full h-full absolute inset-0 -z-20" />
+
       {/* Hero container */}
-      <div className="container h-full mp-default flex justify-between items-center">
+      <div className="container h-full mp-default grid lg:grid-cols-2">
         {/* Text container */}
-        <div className="flex flex-col justify-center">
-          <h1 className="text-5xl font-bold">
-            We are <br /> ChemTek
-          </h1>
-          <h2 className="text-night/75 text-xl">
-            Our team of experts is committed to delivering top-quality products
-            and services that meet the unique needs of your business. Explore
-            our website to learn more about our offerings and how we can help
-            your business succeed.
-          </h2>
-        </div>
+        <MotionConfig reducedMotion="user">
+          <motion.div 
+            className="h-full flex flex-col justify-center gap-4"
+            initial="initial"
+            animate="animateFadeIn"
+            variants={staggerVariants}  
+          >
+            <motion.h1 
+              className="text-smoke text-5xl font-bold"
+              variants={fadeInVariants}
+            >
+              We are ChemTek
+            </motion.h1>
 
-        {/* Video container */}
-        <div className="w-full h-full">
+            <motion.h2 
+              className="text-smoke/75 text-lg"
+              variants={fadeInVariants}
+            >
+              We are a leading provider of commercial ice machine repair,
+              commercial dish machine repair and cleaning solutions. Our team of
+              experts is committed to delivering top-quality products and
+              services that meet the unique needs of your business. Explore to
+              learn more about our offerings and how we can help your business
+              succeed.
+            </motion.h2>
 
-        </div>
+            {/* Buttons container */}
+            <div className="flex gap-4">
+              <motion.button 
+                className="text-lg font-bold w-fit contact-us-button"
+                variants={fadeInVariants}
+              >
+                Contact Us
+              </motion.button>
+
+              <motion.button 
+                className="text-lg font-bold w-fit contact-us-button"
+                variants={fadeInVariants}
+              >
+                Service Areas
+              </motion.button>
+            </div>
+          </motion.div>
+        </MotionConfig>
       </div>
     </section>
   );
