@@ -1,4 +1,5 @@
 import { motion, MotionConfig, type Variants } from "motion/react";
+import { Link } from "react-router";
 
 /**
  * Hero component for Home page
@@ -32,7 +33,7 @@ const Hero = () => {
 
   return (
     <section aria-label="Hero" className="h-screen max-h-192 relative">
-      {/* Hero background images and filters */}
+      {/* Hero background image and filters */}
       <div className="bg-[url(./assets/images/hero-image.webp)] bg-cover bg-center w-full h-full absolute inset-0 -z-20" />
       <div className="bg-gradient-to-b from-chemtek/35 to-transparent w-full h-full absolute inset-0 -z-10" />
       <div className="bg-night/75 w-full h-full absolute inset-0 -z-20" />
@@ -54,8 +55,8 @@ const Hero = () => {
               We are ChemTek
             </motion.h1>
 
-            <motion.h2 
-              className="text-smoke/75 text-lg"
+            <motion.p 
+              className="text-smoke/55 text-lg"
               variants={fadeInVariants}
             >
               We are a leading provider of commercial ice machine repair,
@@ -64,23 +65,25 @@ const Hero = () => {
               services that meet the unique needs of your business. Explore to
               learn more about our offerings and how we can help your business
               succeed.
-            </motion.h2>
+            </motion.p>
 
             {/* Buttons container */}
             <div className="flex gap-4">
-              <motion.button 
+              <motion.span 
                 className="text-lg font-bold w-fit contact-us-button"
+                whileHover={{ scale: 1.1 }}
                 variants={fadeInVariants}
               >
-                Contact Us
-              </motion.button>
+                <Link to="">Contact Us</Link>
+              </motion.span>
 
-              <motion.button 
+              <motion.span 
                 className="text-lg font-bold w-fit contact-us-button"
+                whileHover={{ scale: 1.1 }}
                 variants={fadeInVariants}
               >
-                Service Areas
-              </motion.button>
+                <Link to="">Service Areas</Link>
+              </motion.span>
             </div>
           </motion.div>
         </MotionConfig>
