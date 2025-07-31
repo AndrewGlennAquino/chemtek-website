@@ -10,7 +10,7 @@ const WhatWeDo = () => {
   return (
     <section aria-label="What we do">
       {/* What We Do container */}
-      <div className="container mp-default lg:pb-8 flex flex-col gap-4 lg:gap-8">
+      <div className="container mp-default flex flex-col gap-4">
         {/* What We Do Header */}
         <h1 className="text-3xl font-bold">What We Do</h1>
 
