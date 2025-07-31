@@ -10,26 +10,26 @@ const Hero = () => {
     animateFadeIn: {
       transition: {
         delayChildren: 0.5,
-        staggerChildren: 0.1
-      }
-    }
-  }
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
   // Animate fade in for hero content
   const fadeInVariants: Variants = {
     initial: {
       y: 10,
-      opacity: 0
+      opacity: 0,
     },
     animateFadeIn: {
       y: 0,
       opacity: 1,
       transition: {
         duration: 0.4,
-        ease: "easeOut"
-      }
-    }
-  }
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
     <section aria-label="Hero" className="h-screen max-h-192 relative">
@@ -42,20 +42,20 @@ const Hero = () => {
       <div className="container h-full mp-default grid lg:grid-cols-2">
         {/* Text container */}
         <MotionConfig reducedMotion="user">
-          <motion.div 
+          <motion.div
             className="h-full flex flex-col justify-center gap-4"
             initial="initial"
             animate="animateFadeIn"
-            variants={staggerVariants}  
+            variants={staggerVariants}
           >
-            <motion.h1 
+            <motion.h1
               className="text-smoke text-5xl font-bold"
               variants={fadeInVariants}
             >
               We are ChemTek
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               className="text-smoke/55 text-lg"
               variants={fadeInVariants}
             >
@@ -69,21 +69,25 @@ const Hero = () => {
 
             {/* Buttons container */}
             <div className="flex gap-4">
-              <motion.span 
-                className="text-lg font-bold w-fit contact-us-button"
-                whileHover={{ scale: 1.1 }}
-                variants={fadeInVariants}
-              >
-                <Link to="">Contact Us</Link>
-              </motion.span>
+              <Link to="">
+                <motion.span
+                  className="text-lg font-bold w-fit contact-us-button"
+                  whileHover={{ scale: 1.1 }}
+                  variants={fadeInVariants}
+                >
+                  Contact Us
+                </motion.span>
+              </Link>
 
-              <motion.span 
-                className="text-lg font-bold w-fit contact-us-button"
-                whileHover={{ scale: 1.1 }}
-                variants={fadeInVariants}
-              >
-                <Link to="">Service Areas</Link>
-              </motion.span>
+              <Link to="">
+                <motion.span
+                  className="text-lg font-bold w-fit contact-us-button"
+                  whileHover={{ scale: 1.1 }}
+                  variants={fadeInVariants}
+                >
+                  Service Areas
+                </motion.span>
+              </Link>
             </div>
           </motion.div>
         </MotionConfig>
