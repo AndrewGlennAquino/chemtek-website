@@ -1,4 +1,3 @@
-import { motion, useReducedMotion, MotionConfig } from "motion/react";
 import Card from "../card/Card";
 import cleanImage from "../../assets/images/clean.png";
 import iceImage from "../../assets/images/ice.png";
