@@ -64,7 +64,7 @@ const DropdownMenu = () => {
     <MotionConfig reducedMotion="user">
       <motion.div
         aria-label="Dropdown menu"
-        className="xl:hidden bg-smoke w-screen absolute top-16 left-0 right-0"
+        className="xl:hidden bg-smoke w-screen absolute top-16 left-0 right-0 overflow-x-hidden overflow-y-scroll"
         initial="dropdownInitial"
         variants={variants}
         ref={scope}
