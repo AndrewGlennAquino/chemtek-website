@@ -22,7 +22,9 @@ const Header = () => {
       <div className="container w-full h-16 mp-default flex justify-between items-center">
         {/* Header logo */}
         <motion.h1
-          className="text-chemtek text-3xl font-bold" whileHover={{ scale: 1.1 }}>
+          className="text-chemtek text-3xl font-bold"
+          whileHover={{ scale: 1.1 }}
+        >
           <Link to="/chemtek-website">ChemTek</Link>
         </motion.h1>
 
@@ -61,27 +63,29 @@ const Header = () => {
                 <motion.div className="link-underline" variants={variants} />
               </motion.span>
 
-              <motion.span
-                className="dropdown-link mt-1"
-                initial="initial"
-                whileHover="animateHover"
+              <a
+                href="https://financing.approvepayments.com/chemtek"
+                target="_blank"
               >
-                <a
-                  href="https://financing.approvepayments.com/chemtek"
-                  target="_blank"
+                <motion.span
+                  className="dropdown-link mt-1"
+                  initial="initial"
+                  whileHover="animateHover"
                 >
                   Equipment Lease/Finance
-                </a>
-                <motion.div className="link-underline" variants={variants} />
-              </motion.span>
+                  <motion.div className="link-underline" variants={variants} />
+                </motion.span>
+              </a>
 
-              <motion.span
-                className="text-lg font-bold contact-us-button"
-                whileHover={{ scale: 1.1 }}
-                variants={variants}
-              >
-                <Link to="">Contact Us</Link>
-              </motion.span>
+              <Link to="">
+                <motion.span
+                  className="text-lg font-bold contact-us-button"
+                  whileHover={{ scale: 1.1 }}
+                  variants={variants}
+                >
+                  Contact Us
+                </motion.span>
+              </Link>
             </MotionConfig>
           </div>
         </nav>
