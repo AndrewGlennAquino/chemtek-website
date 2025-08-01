@@ -66,29 +66,6 @@ const Hero = () => {
               learn more about our offerings and how we can help your business
               succeed.
             </motion.p>
-
-            {/* Buttons container */}
-            <div className="flex gap-4">
-              <Link to="">
-                <motion.span
-                  className="text-lg font-bold w-fit contact-us-button"
-                  whileHover={{ scale: 1.1 }}
-                  variants={fadeInVariants}
-                >
-                  Contact Us
-                </motion.span>
-              </Link>
-
-              <Link to="">
-                <motion.span
-                  className="text-lg font-bold w-fit contact-us-button"
-                  whileHover={{ scale: 1.1 }}
-                  variants={fadeInVariants}
-                >
-                  Service Areas
-                </motion.span>
-              </Link>
-            </div>
           </motion.div>
         </MotionConfig>
       </div>
