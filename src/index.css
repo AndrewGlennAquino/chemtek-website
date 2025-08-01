@@ -37,13 +37,23 @@ body {
     @apply text-lg font-bold;
   }
 
-  /* Style for header and hero contact us button */
-  .contact-us-button {
+  /* Style for button primary style */
+  .primary-button {
     @apply bg-gradient-to-br from-chemtek to-[#225313] text-smoke rounded-full px-4 py-2 flex justify-center items-center;
   }
 
   /* Style for link underline */
   .link-underline {
     @apply bg-night w-full h-1;
+  }
+
+  /* Style for card shadow */
+  .card-shadow {
+    box-shadow: 0 0 8px #e0e0e0;
+  }
+
+  /* Style for headers for main content */
+  .content-header {
+    @apply text-3xl font-bold;
   }
 }
