@@ -12,7 +12,7 @@ interface CardProps {
  */
 const Card = ({ src, alt, title, description }: CardProps) => {
   return (
-    <div className="bg-night/5 p-6 rounded-4xl flex flex-col gap-4 lg:gap-8 justify-center">
+    <div className="card-shadow p-6 rounded-4xl flex flex-col gap-4 lg:gap-8 justify-center">
       {/* Card image */}
       <img src={src} alt={alt} className="w-40 h-auto mx-auto" />
 
