@@ -109,7 +109,7 @@ const DropdownMenu = () => {
           </motion.span>
 
           <motion.span
-            className="text-lg font-bold contact-us-button"
+            className="text-lg font-bold primary-button"
             initial="linkInitial"
             variants={variants}
           >

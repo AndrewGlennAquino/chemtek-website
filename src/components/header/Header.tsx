@@ -79,7 +79,7 @@ const Header = () => {
 
               <Link to="">
                 <motion.span
-                  className="text-lg font-bold contact-us-button"
+                  className="text-lg font-bold primary-button"
                   whileHover={{ scale: 1.1 }}
                   variants={variants}
                 >
