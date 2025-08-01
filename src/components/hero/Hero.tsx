@@ -1,5 +1,4 @@
 import { motion, MotionConfig, type Variants } from "motion/react";
-import { Link } from "react-router";
 
 /**
  * Hero component for Home page
