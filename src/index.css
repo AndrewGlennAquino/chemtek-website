@@ -56,4 +56,9 @@ body {
   .content-header {
     @apply text-3xl font-bold;
   }
+
+  /* Style for testimonial quotation marks */
+  .testimonial-quote {
+    @apply text-chemtek text-9xl font-bold opacity-25 w-fit h-16;
+  }
 }
