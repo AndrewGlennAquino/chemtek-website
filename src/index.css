@@ -61,4 +61,9 @@ body {
   .testimonial-quote {
     @apply text-chemtek text-9xl font-bold opacity-25 w-fit h-16;
   }
+
+  /* Style for input text input in contact form */
+  .contact-form-input {
+    @apply text-smoke border-b-2 border-smoke w-full py-1;
+  }
 }
