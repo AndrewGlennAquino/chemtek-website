@@ -1,4 +1,4 @@
-import { motion, MotionConfig, type Variants } from "motion/react";
+import { motion, MotionConfig, stagger, type Variants } from "motion/react";
 import heroVideo from "../../../public/hero-video.mp4";
 import chevron from "../../assets/icons/chevron-down.svg";
 
@@ -10,8 +10,7 @@ const Hero = () => {
   const staggerVariants: Variants = {
     animateFadeIn: {
       transition: {
-        delayChildren: 0.5,
-        staggerChildren: 0.1,
+        delayChildren: stagger(0.1, { startDelay: 0.5 }),
       },
     },
   };
