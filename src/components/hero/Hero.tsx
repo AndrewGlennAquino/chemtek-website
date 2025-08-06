@@ -1,5 +1,6 @@
 import { motion, MotionConfig, type Variants } from "motion/react";
 import heroVideo from "../../assets/videos/hero-video.mp4";
+import videoPoster from "../../assets/images/videoPoster.png";
 import chevron from "../../assets/icons/chevron-down.svg";
 
 /**
@@ -38,10 +39,12 @@ const Hero = () => {
       <video
         className="w-full h-full object-cover object-center absolute inset-0 -z-20"
         src={heroVideo}
+        poster={videoPoster}
         aria-label="Video of someone scooping ice"
-        autoPlay
         loop
         muted
+        autoPlay
+        playsInline
       />
       <div className="bg-gradient-to-b from-chemtek/50 to-transparent w-full h-full absolute inset-0 -z-10" />
       <div className="bg-night/75 w-full h-full absolute inset-0 -z-20" />
@@ -83,7 +86,7 @@ const Hero = () => {
 
       {/* Animated pointer to indicate to scroll down for device width < 1024px */}
       <motion.div
-        className="lg:hidden absolute right-1/2 bottom-4"
+        className="lg:hidden absolute right-1/2 bottom-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
