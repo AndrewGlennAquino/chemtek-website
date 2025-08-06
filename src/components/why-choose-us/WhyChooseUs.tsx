@@ -12,7 +12,7 @@ interface WhyChooseUsCardProps {
 
 const WhyChooseUsCard = ({ bg, src, title, desc }: WhyChooseUsCardProps) => {
   return (
-    <div className="card-shadow w-full h-full p-4 rounded-lg flex flex-col items-center gap-8">
+    <div className="card-shadow w-full h-full p-4 rounded-lg flex flex-col md:flex-row items-center gap-8">
       {/* Image with background color */}
       <div className={`${bg} w-fit h-fit p-1 shrink-0 rounded-lg`}>
         <img src={src} alt={`Image of ${title}`} />
