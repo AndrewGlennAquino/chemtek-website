@@ -1,4 +1,6 @@
 import { motion, MotionConfig, type Variants } from "motion/react";
+import heroVideo from "../../assets/videos/hero-video.mp4";
+import chevron from "../../assets/icons/chevron-down.svg";
 
 /**
  * Hero component for Home page
@@ -32,9 +34,16 @@ const Hero = () => {
 
   return (
     <section aria-label="Hero" className="h-screen max-h-192 relative">
-      {/* Hero background image and filters */}
-      <div className="bg-[url(./assets/images/hero-image.webp)] bg-cover bg-center w-full h-full absolute inset-0 -z-20" />
-      <div className="bg-gradient-to-b from-chemtek/35 to-transparent w-full h-full absolute inset-0 -z-10" />
+      {/* Hero background video and filters */}
+      <video
+        className="w-full h-full object-cover object-center absolute inset-0 -z-20"
+        src={heroVideo}
+        aria-label="Video of someone scooping ice"
+        autoPlay
+        loop
+        muted
+      />
+      <div className="bg-gradient-to-b from-chemtek/50 to-transparent w-full h-full absolute inset-0 -z-10" />
       <div className="bg-night/75 w-full h-full absolute inset-0 -z-20" />
 
       {/* Hero container */}
@@ -42,32 +51,55 @@ const Hero = () => {
         {/* Text container */}
         <MotionConfig reducedMotion="user">
           <motion.div
-            className="h-full flex flex-col justify-center gap-4"
+            className="h-full flex flex-col justify-center"
             initial="initial"
             animate="animateFadeIn"
             variants={staggerVariants}
           >
             <motion.h1
-              className="text-smoke text-5xl font-bold"
+              className="text-smoke text-4xl font-bold"
               variants={fadeInVariants}
             >
-              We are ChemTek
+              We Are ChemTek
             </motion.h1>
 
-            <motion.p
-              className="text-smoke/55 text-lg"
+            <motion.h2
+              className="text-smoke text-lg font-semibold mb-4"
               variants={fadeInVariants}
             >
-              We are a leading provider of commercial ice machine repair,
-              commercial dish machine repair and cleaning solutions. Our team of
-              experts is committed to delivering top-quality products and
-              services that meet the unique needs of your business. Explore to
-              learn more about our offerings and how we can help your business
-              succeed.
+              Leading provider of commercial ice machine repair, commercial dish
+              machine repair and cleaning solutions.
+            </motion.h2>
+
+            <motion.p className="text-smoke/75" variants={fadeInVariants}>
+              Our team of experts is committed to delivering top-quality
+              products and services that meet the unique needs of your business.
+              Explore to learn more about our offerings and how we can help your
+              business succeed.
             </motion.p>
           </motion.div>
         </MotionConfig>
       </div>
+
+      {/* Animated pointer to indicate to scroll down for device width < 1024px */}
+      <motion.div
+        className="lg:hidden absolute right-1/2 bottom-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 2,
+          duration: 2,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "mirror",
+        }}
+      >
+        <img
+          className="w-8 h-8 object-cover object-center"
+          src={chevron}
+          alt="Downards chevron indicator to scroll down"
+        />
+      </motion.div>
     </section>
   );
 };
