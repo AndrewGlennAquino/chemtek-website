@@ -70,7 +70,7 @@ const DropdownMenu = () => {
         ref={scope}
       >
         {/* Dropdown menu container with default margin and padding */}
-        <div className="container mp-default flex flex-col justify-center gap-8">
+        <div className="container h-full mp-default py-4 flex flex-col justify-between gap-8">
           <motion.span
             className="dropdown-link"
             initial="linkInitial"

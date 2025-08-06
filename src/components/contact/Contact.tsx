@@ -18,7 +18,7 @@ const Contact = () => {
         </div>
 
         {/* Contact form */}
-        <form className="w-full max-w-192 flex flex-col gap-8">
+        <form className="w-full max-w-192 flex flex-col lg:pt-8 gap-8">
           <input
             type="input"
             name="first-name"
@@ -38,7 +38,7 @@ const Contact = () => {
             className="contact-form-input"
           />
 
-          <button onClick={(e) => { e.preventDefault() }} className="border-2 border-smoke w-fit p-2 px-4 rounded-full">Join Now!</button>
+          <button onClick={(e) => { e.preventDefault() }} className="border-2 border-smoke w-fit p-2 px-4 rounded-lg">Join Now!</button>
         </form>
       </div>
     </section>

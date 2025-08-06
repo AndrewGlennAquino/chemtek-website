@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <header className="bg-smoke fixed sm:sticky top-0 left-0 right-0 z-50">
       {/* Header container */}
-      <div className="container w-full h-16 mp-default flex justify-between items-center">
+      <div className="container w-full h-16 mp-default py-4 flex justify-between items-center">
         {/* Header logo */}
         <motion.h1
           className="text-chemtek text-3xl font-bold"

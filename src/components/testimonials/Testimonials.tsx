@@ -19,7 +19,7 @@ const Testimonial = ({ src, author, company, children }: TestimonialProps) => {
   return (
     <article
       aria-label={`Testimonial from ${author} on FaceBook`}
-      className="bg-smoke card-shadow w-full h-full p-6 rounded-4xl flex flex-col gap-4"
+      className="bg-smoke card-shadow w-full h-full p-6 rounded-lg flex flex-col gap-4"
     >
       {/* Testimonial description */}
       <div>
