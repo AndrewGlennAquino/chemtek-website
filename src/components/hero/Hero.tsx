@@ -1,4 +1,9 @@
-import { motion, MotionConfig, type Variants } from "motion/react";
+import {
+  motion,
+  MotionConfig,
+  type Variants,
+  useReducedMotion,
+} from "motion/react";
 import heroVideo from "../../assets/videos/hero-video.mp4";
 import videoPoster from "../../assets/images/videoPoster.png";
 import chevron from "../../assets/icons/chevron-down.svg";
@@ -7,6 +12,9 @@ import chevron from "../../assets/icons/chevron-down.svg";
  * Hero component for Home page
  */
 const Hero = () => {
+  // Motion hook to to convert background to image if user prefersed reduced motion
+  const shouldReduceMotion = useReducedMotion();
+
   // Parent animation variants to stagger children animation
   const staggerVariants: Variants = {
     animateFadeIn: {
@@ -36,16 +44,24 @@ const Hero = () => {
   return (
     <section aria-label="Hero" className="h-screen max-h-192 relative">
       {/* Hero background video and filters */}
-      <video
-        className="w-full h-full object-cover object-center absolute inset-0 -z-20"
-        src={heroVideo}
-        poster={videoPoster}
-        aria-label="Video of someone scooping ice"
-        loop
-        muted
-        autoPlay
-        playsInline
-      />
+      {/* If user prefers reduced motion, return image */}
+      {shouldReduceMotion ? (
+        <img
+          className="w-full h-full object-cover object-center absolute inset-0 -z-20"
+          src={videoPoster}
+          alt="Video of someone scooping ice"
+        />
+      ) : (
+        <video
+          className="w-full h-full object-cover object-center absolute inset-0 -z-20"
+          src={heroVideo}
+          aria-label="Video of someone scooping ice"
+          loop
+          muted
+          autoPlay
+          playsInline
+        />
+      )}
       <div className="bg-gradient-to-b from-chemtek/50 to-transparent w-full h-full absolute inset-0 -z-10" />
       <div className="bg-night/75 w-full h-full absolute inset-0 -z-20" />
 
