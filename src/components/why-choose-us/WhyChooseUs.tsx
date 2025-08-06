@@ -15,7 +15,7 @@ const WhyChooseUsCard = ({ bg, src, title, desc }: WhyChooseUsCardProps) => {
     <div className="card-shadow w-full h-full p-4 rounded-lg flex flex-col md:flex-row items-center gap-8">
       {/* Image with background color */}
       <div className={`${bg} w-fit h-fit p-1 shrink-0 rounded-lg`}>
-        <img src={src} alt={`Image of ${title}`} />
+        <img src={src} alt={`Image of ${title}`} loading="lazy"/>
       </div>
 
       {/* Card text container */}

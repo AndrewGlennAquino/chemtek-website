@@ -14,7 +14,7 @@ const Card = ({ src, alt, title, description }: CardProps) => {
   return (
     <div className="card-shadow p-4 rounded-lg flex flex-col gap-4 lg:gap-8 justify-center">
       {/* Card image */}
-      <img src={src} alt={alt} className="w-40 h-auto mx-auto" />
+      <img src={src} alt={alt} className="w-40 h-auto mx-auto" loading="lazy"/>
 
       {/* Card text */}
       <div>
