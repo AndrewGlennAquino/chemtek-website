@@ -84,7 +84,7 @@ const Hero = () => {
 
       {/* Animated pointer to indicate to scroll down for device width < 1024px */}
       <motion.div
-        className="lg:hidden absolute right-1/2 bottom-8"
+        className="lg:hidden absolute right-1/2 bottom-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
