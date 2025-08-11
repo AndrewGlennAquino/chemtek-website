@@ -30,9 +30,9 @@ const WhyChooseUsCard = ({
       </div>
 
       {/* Card text container */}
-      <div>
+      <div className="text-balance">
         <h2 className="text-lg font-bold">{title}</h2>
-        <p>{desc}</p>
+        <p className="text-smoke/50">{desc}</p>
       </div>
     </motion.div>
   );
@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
       {/* Why choose us container spacing */}
       <div className="container mp-default">
         {/* Why choose us container with y border */}
-        <div className="border-y-2 border-chemtek py-8 mb-8 flex flex-col lg:grid lg:grid-rows-1 lg:grid-cols-2 gap-4 lg:gap-8">
+        <div className="border-y-2 border-night-shade py-8 mb-8 flex flex-col lg:grid lg:grid-rows-1 lg:grid-cols-2 gap-4 lg:gap-8">
           {/* Text container */}
           <div className="flex flex-col justify-center gap-8">
             {/* Why choose us header */}

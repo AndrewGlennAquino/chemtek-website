@@ -1,6 +1,5 @@
 import { motion, MotionConfig, stagger, type Variants } from "motion/react";
 import heroVideo from "../../../public/hero-video.mp4";
-import chevron from "../../assets/icons/chevron-down.svg";
 
 /**
  * Hero component for Home page
@@ -43,8 +42,8 @@ const Hero = () => {
         autoPlay
         playsInline
       />
-      <div className="bg-gradient-to-b from-chemtek/50 to-transparent w-full h-full absolute inset-0 -z-10" />
-      <div className="bg-night/75 w-full h-full absolute inset-0 -z-20" />
+      {/* <div className="bg-gradient-to-b from-chemtek/50 to-aqua/50 w-full h-full absolute inset-0 -z-10" /> */}
+      <div className="hero-shadow bg-night/90 w-full h-full absolute inset-0 -z-20" />
 
       {/* Hero container */}
       <div className="container h-full mp-default grid lg:grid-cols-2">
@@ -60,7 +59,10 @@ const Hero = () => {
               className="text-smoke text-4xl font-bold"
               variants={fadeInVariants}
             >
-              We Are ChemTek
+              We Are{" "}
+              <span className="bg-linear-to-r from-chemtek to-aqua bg-clip-text text-transparent">
+                ChemTek
+              </span>
             </motion.h1>
 
             <motion.h2
@@ -80,26 +82,6 @@ const Hero = () => {
           </motion.div>
         </MotionConfig>
       </div>
-
-      {/* Animated pointer to indicate to scroll down for device width < 1024px */}
-      <motion.div
-        className="lg:hidden absolute right-1/2 bottom-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          delay: 2,
-          duration: 2,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatType: "mirror",
-        }}
-      >
-        <img
-          className="w-8 h-8 object-cover object-center"
-          src={chevron}
-          alt="Downards chevron indicator to scroll down"
-        />
-      </motion.div>
     </section>
   );
 };

@@ -17,15 +17,12 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-smoke fixed sm:sticky top-0 left-0 right-0 z-50">
+    <header className="bg-night header-shadow fixed sm:sticky top-0 left-0 right-0 z-50">
       {/* Header container */}
       <div className="container w-full h-16 mp-default py-4 flex justify-between items-center">
         {/* Header logo */}
-        <motion.h1
-          className="text-chemtek text-3xl font-bold"
-          whileHover={{ scale: 1.1 }}
-        >
-          <Link to="/chemtek-website">ChemTek</Link>
+        <motion.h1 className="logo relative" whileHover={{ scale: 1.1 }}>
+          <Link to="/chemtek-website">CHEMTEK</Link>
         </motion.h1>
 
         {/* Responsive navigation menu */}
@@ -41,16 +38,7 @@ const Header = () => {
                 initial="initial"
                 whileHover="animateHover"
               >
-                <Link to="">Home</Link>
-                <motion.div className="link-underline" variants={variants} />
-              </motion.span>
-
-              <motion.span
-                className="dropdown-link mt-1"
-                initial="initial"
-                whileHover="animateHover"
-              >
-                <Link to="">Why Choose Us</Link>
+                <Link to="/chemtek-website">Home</Link>
                 <motion.div className="link-underline" variants={variants} />
               </motion.span>
 

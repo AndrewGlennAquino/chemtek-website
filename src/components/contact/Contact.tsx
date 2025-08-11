@@ -2,7 +2,7 @@ const Contact = () => {
   return (
     <section
       aria-label="Contact us"
-      className="bg-linear-to-t from-chemtek to-[#225313] text-smoke"
+      className="bg-linear-to-b from-aqua/90 to-chemtek/90 text-night"
     >
       {/* Contact container */}
       <div className="container mp-default flex flex-col lg:flex-row lg:justify-between gap-8">
@@ -38,7 +38,7 @@ const Contact = () => {
             className="contact-form-input"
           />
 
-          <button onClick={(e) => { e.preventDefault() }} className="border-2 border-smoke w-fit p-2 px-4 rounded-lg">Join Now!</button>
+          <button onClick={(e) => { e.preventDefault() }} className="border-2 border-night w-fit p-2 px-4 rounded-lg">Join Now!</button>
         </form>
       </div>
     </section>

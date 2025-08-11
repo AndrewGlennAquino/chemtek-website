@@ -10,10 +10,16 @@ import {
 } from "motion/react";
 import { Link } from "react-router";
 
+interface DropdownMenuProps {
+  onClick: () => void;
+}
+
 /**
  * Animated dropdown menu component that enters or exits DOM on hamburger menu click.
+ * When a link is clicked in the dropdown menu, trigger onClick prop
+ * @param props onClick
  */
-const DropdownMenu = () => {
+const DropdownMenu = ({ onClick }: DropdownMenuProps) => {
   // Motion hook used to control sequence of animations using the element scope as reference
   const [scope, animate] = useAnimate();
 
@@ -64,19 +70,21 @@ const DropdownMenu = () => {
     <MotionConfig reducedMotion="user">
       <motion.div
         aria-label="Dropdown menu"
-        className="xl:hidden bg-smoke w-screen absolute top-16 left-0 right-0 overflow-x-hidden overflow-y-scroll"
+        className="xl:hidden bg-night/50 backdrop-blur-md w-screen absolute top-16 left-0 right-0 overflow-x-hidden overflow-y-scroll"
         initial="dropdownInitial"
         variants={variants}
         ref={scope}
       >
         {/* Dropdown menu container with default margin and padding */}
-        <div className="container h-full mp-default py-4 flex flex-col justify-between gap-8">
+        <div className="container h-full mp-default py-4 flex flex-col justify-evenly gap-8">
           <motion.span
             className="dropdown-link"
             initial="linkInitial"
             variants={variants}
           >
-            <Link to="">Home</Link>
+            <Link to="/chemtek-website" onClick={onClick}>
+              Home
+            </Link>
           </motion.span>
 
           <motion.span
@@ -84,15 +92,9 @@ const DropdownMenu = () => {
             initial="linkInitial"
             variants={variants}
           >
-            <Link to="">Why Choose Us</Link>
-          </motion.span>
-
-          <motion.span
-            className="dropdown-link"
-            initial="linkInitial"
-            variants={variants}
-          >
-            <Link to="">Service Area</Link>
+            <Link to="" onClick={onClick}>
+              Service Area
+            </Link>
           </motion.span>
 
           <motion.span
@@ -113,7 +115,9 @@ const DropdownMenu = () => {
             initial="linkInitial"
             variants={variants}
           >
-            <Link to="">Contact Us</Link>
+            <Link to="" onClick={onClick}>
+              Contact Us
+            </Link>
           </motion.span>
         </div>
       </motion.div>
@@ -161,7 +165,10 @@ const HamburgerMenu = () => {
       </button>
 
       {/* If hamburger menu is clicked, animate DropdownMenu entering or exiting the DOM */}
-      <AnimatePresence>{clicked && <DropdownMenu />}</AnimatePresence>
+      {/* If a link is clicked within the menu, trigger close transition animation */}
+      <AnimatePresence>
+        {clicked && <DropdownMenu onClick={() => setClicked(false)} />}
+      </AnimatePresence>
     </>
   );
 };
