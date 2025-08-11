@@ -42,8 +42,7 @@ const Hero = () => {
         autoPlay
         playsInline
       />
-      {/* <div className="bg-gradient-to-b from-chemtek/50 to-aqua/50 w-full h-full absolute inset-0 -z-10" /> */}
-      <div className="hero-shadow bg-night/90 w-full h-full absolute inset-0 -z-20" />
+      <div className="hero-shadow bg-night/75 w-full h-full absolute inset-0 -z-20" />
 
       {/* Hero container */}
       <div className="container h-full mp-default grid lg:grid-cols-2">
