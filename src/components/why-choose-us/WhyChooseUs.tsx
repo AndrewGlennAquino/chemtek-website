@@ -30,7 +30,7 @@ const WhyChooseUsCard = ({
       </div>
 
       {/* Card text container */}
-      <div className="text-balance">
+      <div>
         <h2 className="text-lg font-bold">{title}</h2>
         <p className="text-smoke/50">{desc}</p>
       </div>
