@@ -79,6 +79,6 @@ body {
 
   /* Style for input text input in contact form */
   .contact-form-input {
-    @apply text-smoke border-b-2 border-night w-full py-1 placeholder:text-night/75;
+    @apply text-night border-b-2 border-night w-full pl-1 py-1 placeholder:text-night/75;
   }
 }
