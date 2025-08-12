@@ -1,4 +1,4 @@
-import { motion, type Variants, stagger } from "motion/react";
+import { motion } from "motion/react";
 
 // Props for AreaCard component
 interface AreaCardProps {
