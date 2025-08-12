@@ -56,7 +56,7 @@ const Testimonial = ({ src, author, company, children }: TestimonialProps) => {
  */
 const Testimonials = () => {
   return (
-    <section aria-label="Testimonials" className="bg-night/5">
+    <section aria-label="Testimonials" className="bg-linear-to-b from-night from-50% to-aqua/50">
       {/* Testimonials container */}
       <div className="container mp-default flex flex-col gap-4">
         {/* Testimonials header */}
