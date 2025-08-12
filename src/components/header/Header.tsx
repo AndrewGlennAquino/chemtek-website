@@ -1,21 +1,11 @@
 import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
-import { motion, type Variants, MotionConfig } from "motion/react";
+import { motion } from "motion/react";
 import { Link } from "react-router";
 
 /**
  * Header component that contains logo and responsive nav
  */
 const Header = () => {
-  // Animation variants to animate links on hover
-  const variants: Variants = {
-    initial: {
-      width: 0,
-    },
-    animateHover: {
-      width: "100%",
-    },
-  };
-
   return (
     <header className="bg-night header-shadow fixed sm:sticky top-0 left-0 right-0 z-50">
       {/* Header container */}
@@ -32,49 +22,34 @@ const Header = () => {
 
           {/* Links container for device width 1280px and greater */}
           <div className="hidden xl:flex justify-center items-center gap-8">
-            <MotionConfig reducedMotion="user">
-              <motion.span
-                className="dropdown-link mt-1"
-                initial="initial"
-                whileHover="animateHover"
-              >
-                <Link to="/chemtek-website">Home</Link>
-                <motion.div className="link-underline" variants={variants} />
-              </motion.span>
-
-              <motion.span
-                className="dropdown-link mt-1"
-                initial="initial"
-                whileHover="animateHover"
-              >
-                <Link to="">Service Area</Link>
-                <motion.div className="link-underline" variants={variants} />
-              </motion.span>
-
-              <a
-                href="https://financing.approvepayments.com/chemtek"
-                target="_blank"
-              >
-                <motion.span
-                  className="dropdown-link mt-1"
-                  initial="initial"
-                  whileHover="animateHover"
+            <motion.a
+              href="https://financing.approvepayments.com/chemtek"
+              target="_blank"
+              whileHover="animateHover"
+            >
+              <div className="gradient-border">
+                <motion.div
+                  className="bg-night text-lg font-bold gradient-border-content"
+                  variants={{
+                    animateHover: {
+                      backgroundColor: "rgba(0, 0, 0, 0)",
+                      color: "var(--color-night)",
+                    },
+                  }}
                 >
                   Equipment Lease/Finance
-                  <motion.div className="link-underline" variants={variants} />
-                </motion.span>
-              </a>
+                </motion.div>
+              </div>
+            </motion.a>
 
-              <Link to="">
-                <motion.span
-                  className="text-lg font-bold primary-button"
-                  whileHover={{ scale: 1.1 }}
-                  variants={variants}
-                >
-                  Contact Us
-                </motion.span>
-              </Link>
-            </MotionConfig>
+            <Link to="">
+              <motion.div
+                className="text-lg font-bold primary-button"
+                whileHover={{ scale: 1.1 }}
+              >
+                Contact Us
+              </motion.div>
+            </Link>
           </div>
         </nav>
       </div>
