@@ -1,9 +1,10 @@
+import { motion } from "motion/react";
 import facebookIcon from "../../assets/icons/facebook.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-chemtek/90 text-night text-sm">
+    <footer className="bg-chemtek/50 text-smoke text-sm">
       {/* Footer container */}
       <div className="container mp-default flex flex-col gap-4">
         {/* Social media container */}
@@ -12,26 +13,32 @@ const Footer = () => {
 
           <div className="flex gap-4">
             {/* Facebook link */}
-            <a
+            <motion.a
               href="https://www.facebook.com/641706522363028"
               target="_blank"
               className="social-media-link"
+              whileHover={{ scale: 1.1 }}
             >
               <img
                 src={facebookIcon}
                 alt="Facebook logo"
                 className="w-full h-full"
               />
-            </a>
+            </motion.a>
 
             {/* LinkedIn link */}
-            <a className="social-media-link">
+            <motion.a 
+              href="https://www.linkedin.com/company/chemtek-llc/"
+              target="_blank"
+              className="social-media-link"
+              whileHover={{ scale: 1.1 }}
+            >
               <img
                 src={linkedinIcon}
                 alt="LinkedIn logo"
                 className="w-full h-full"
               />
-            </a>
+            </motion.a>
           </div>
         </div>
 
