@@ -59,7 +59,7 @@ const Hero = () => {
               variants={fadeInVariants}
             >
               We Are{" "}
-              <span className="bg-linear-to-r from-chemtek to-aqua bg-clip-text text-transparent">
+              <span className="gradient-text">
                 ChemTek
               </span>
             </motion.h1>
