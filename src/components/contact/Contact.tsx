@@ -2,7 +2,7 @@ const Contact = () => {
   return (
     <section
       aria-label="Contact us"
-      className="bg-linear-to-b from-aqua/90 to-chemtek/90 text-night"
+      className="bg-linear-to-b from-aqua/50 to-chemtek/50 text-smoke"
     >
       {/* Contact container */}
       <div className="container mp-default flex flex-col lg:flex-row lg:justify-between gap-8">
@@ -12,9 +12,7 @@ const Contact = () => {
           <h1 className="content-header">Contact Us</h1>
 
           {/* Contact call to action */}
-          <p>
-            Join our mailing list and access special offers and discounts!
-          </p>
+          <p>Join our mailing list and access special offers and discounts!</p>
         </div>
 
         {/* Contact form */}
@@ -38,7 +36,14 @@ const Contact = () => {
             className="contact-form-input"
           />
 
-          <button onClick={(e) => { e.preventDefault() }} className="border-2 border-night w-fit p-2 px-4 rounded-lg">Join Now!</button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            className="border-2 border-smoke w-fit p-2 px-4 rounded-lg"
+          >
+            Join Now!
+          </button>
         </form>
       </div>
     </section>
