@@ -30,9 +30,9 @@ const DropdownMenu = ({ onClick }: DropdownMenuProps) => {
   useEffect(() => {
     if (isPresent) {
       const openSequence = async () => {
-        await animate(scope.current, { height: 320 }, { duration: 0.2 });
+        await animate(scope.current, { height: 160 }, { duration: 0.2 });
         await animate(
-          "span",
+          "div",
           { y: 0, opacity: 1 },
           { delay: stagger(0.05), duration: 0.1 }
         );
@@ -42,7 +42,7 @@ const DropdownMenu = ({ onClick }: DropdownMenuProps) => {
     } else {
       const closeSequence = async () => {
         await animate(
-          "span",
+          "div",
           { y: -15, opacity: 0 },
           { delay: stagger(0.05), duration: 0.1 }
         );
@@ -70,47 +70,29 @@ const DropdownMenu = ({ onClick }: DropdownMenuProps) => {
     <MotionConfig reducedMotion="user">
       <motion.div
         aria-label="Dropdown menu"
-        className="xl:hidden bg-night/50 backdrop-blur-md w-screen absolute top-16 left-0 right-0 overflow-x-hidden overflow-y-scroll"
+        className="xl:hidden bg-night/50 backdrop-blur-md w-screen absolute top-16 left-0 right-0"
         initial="dropdownInitial"
         variants={variants}
         ref={scope}
       >
         {/* Dropdown menu container with default margin and padding */}
-        <div className="container h-full mp-default py-4 flex flex-col justify-evenly gap-8">
-          <motion.span
-            className="dropdown-link"
+        <div className="container mp-default py-4 flex flex-col justify-evenly gap-8">
+          <motion.div
+            className="gradient-border flex relative"
             initial="linkInitial"
             variants={variants}
           >
-            <Link to="/chemtek-website" onClick={onClick}>
-              Home
-            </Link>
-          </motion.span>
+            <div className="bg-night text-lg font-bold w-full gradient-border-content">
+              <a
+                href="https://financing.approvepayments.com/chemtek"
+                target="_blank"
+              >
+                Equipment Lease/Finance
+              </a>
+            </div>
+          </motion.div>
 
-          <motion.span
-            className="dropdown-link"
-            initial="linkInitial"
-            variants={variants}
-          >
-            <Link to="" onClick={onClick}>
-              Service Area
-            </Link>
-          </motion.span>
-
-          <motion.span
-            className="dropdown-link"
-            initial="linkInitial"
-            variants={variants}
-          >
-            <a
-              href="https://financing.approvepayments.com/chemtek"
-              target="_blank"
-            >
-              Equipment Lease/Finance
-            </a>
-          </motion.span>
-
-          <motion.span
+          <motion.div
             className="text-lg font-bold primary-button"
             initial="linkInitial"
             variants={variants}
@@ -118,7 +100,7 @@ const DropdownMenu = ({ onClick }: DropdownMenuProps) => {
             <Link to="" onClick={onClick}>
               Contact Us
             </Link>
-          </motion.span>
+          </motion.div>
         </div>
       </motion.div>
     </MotionConfig>
@@ -150,15 +132,19 @@ const HamburgerMenu = () => {
           <MotionConfig reducedMotion="user">
             <motion.div
               className="hamburger-menu-bar"
-              animate={clicked ? { y: 8, rotate: 45 } : undefined}
+              animate={clicked ? { y: 8, rotate: 225 } : undefined}
             />
             <motion.div
               className="hamburger-menu-bar"
-              animate={clicked ? { width: 0 } : undefined}
+              animate={
+                clicked
+                  ? { opacity: 0, transition: { duration: 0 } }
+                  : undefined
+              }
             />
             <motion.div
               className="hamburger-menu-bar"
-              animate={clicked ? { y: -8, rotate: -45 } : undefined}
+              animate={clicked ? { y: -8, rotate: -225 } : undefined}
             />
           </MotionConfig>
         </div>
