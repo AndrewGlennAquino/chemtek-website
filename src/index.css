@@ -47,11 +47,6 @@ body {
     box-shadow: inset 0 0 8px var(--color-night-shade);
   }
 
-  /* Style for dropdown menu links */
-  .dropdown-link {
-    @apply text-lg font-bold;
-  }
-
   /* Style for header logo */
   .logo {
     @apply bg-linear-to-r from-chemtek to-aqua text-night text-2xl font-bold px-2 rounded-sm;
@@ -60,11 +55,6 @@ body {
   /* Style for button primary style */
   .primary-button {
     @apply bg-gradient-to-br from-chemtek to-aqua text-night rounded-lg px-4 py-2 flex justify-center items-center;
-  }
-
-  /* Style for link underline */
-  .link-underline {
-    @apply bg-smoke w-full h-1;
   }
 
   /* Style for card shadow */
@@ -85,5 +75,20 @@ body {
   /* Social media button */
   .social-media-link {
     @apply bg-aqua w-12 h-12 p-3 rounded-full flex justify-center items-center;
+  }
+
+  /* Style for gradient border */
+  .gradient-border {
+    @apply bg-linear-to-r from-chemtek to-aqua p-0.5 rounded-lg;
+  }
+
+  /* Style for gradient border content */
+  .gradient-border-content {
+    @apply py-1.5 px-4 rounded-lg flex justify-center items-center;
+  }
+
+  /* Style for gradient text */
+  .gradient-text {
+    @apply bg-linear-to-r from-chemtek to-aqua bg-clip-text text-transparent;
   }
 }
