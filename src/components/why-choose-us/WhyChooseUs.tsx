@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
       {/* Why choose us container spacing */}
       <div className="container mp-default">
         {/* Why choose us container with y border */}
-        <div className="border-y-2 border-night-shade py-8 mb-8 flex flex-col lg:grid lg:grid-rows-1 lg:grid-cols-2 gap-4 lg:gap-8">
+        <div className="border-y-2 border-night-shade py-8 flex flex-col lg:grid lg:grid-rows-1 lg:grid-cols-2 gap-4 lg:gap-8">
           {/* Text container */}
           <div className="flex flex-col justify-center gap-8">
             {/* Why choose us header */}
