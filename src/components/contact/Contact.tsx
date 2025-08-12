@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 const Contact = () => {
   return (
     <section
@@ -36,14 +38,12 @@ const Contact = () => {
             className="contact-form-input"
           />
 
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-            className="border-2 border-smoke w-fit p-2 px-4 rounded-lg"
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className="cursor-pointer border-2 border-smoke w-fit p-2 px-4 rounded-lg"
           >
             Join Now!
-          </button>
+          </motion.button>
         </form>
       </div>
     </section>
