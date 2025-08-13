@@ -9,7 +9,7 @@ interface AreaCardProps {
  * AreaCard component that takes a children as props
  */
 const AreaCard = ({ children }: AreaCardProps) => {
-  return <li className="primary-button card-shadow p-4">{children}</li>;
+  return <li className="primary-button card-shadow font-semibold p-4">{children}</li>;
 };
 
 /**
