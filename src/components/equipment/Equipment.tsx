@@ -13,7 +13,7 @@ const Equipment = () => {
 
         {/* Equpment text container */}
         <div className="card-shadow rounded-lg p-4 flex flex-col gap-2">
-          <h2 className="text-smoke/50 text-lg font-semibold">
+          <h2 className="text-smoke/25 text-lg font-semibold">
             Powering Your Business with Reliability and Efficiency
           </h2>
 
