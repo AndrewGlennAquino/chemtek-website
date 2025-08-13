@@ -76,7 +76,16 @@ const Testimonials = () => {
         <h1 className="content-header">Testimonials</h1>
 
         {/* Testimonial and button */}
-        <div className="bg-night card-shadow p-4 rounded-lg">
+        <motion.div
+          className="bg-night card-shadow p-4 rounded-lg"
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: { delay: 0.5, duration: 0.4, ease: "easeOut" },
+          }}
+          viewport={{ once: true }}
+        >
           <Testimonial
             src={userIcon}
             author="Julio B."
@@ -119,7 +128,7 @@ const Testimonials = () => {
           >
             View All Reviews →
           </motion.a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

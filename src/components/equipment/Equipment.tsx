@@ -12,7 +12,16 @@ const Equipment = () => {
         <h1 className="text-balance">Equipment Lease/Fianance</h1>
 
         {/* Equpment text container */}
-        <div className="card-shadow rounded-lg p-4 flex flex-col gap-2">
+        <motion.div
+          className="card-shadow rounded-lg p-4 flex flex-col gap-2"
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: { delay: 0.5, duration: 0.4, ease: "easeOut" },
+          }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-smoke/25 text-lg font-semibold">
             Powering Your Business with Reliability and Efficiency
           </h2>
@@ -50,7 +59,7 @@ const Equipment = () => {
               </motion.div>
             </div>
           </motion.a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
