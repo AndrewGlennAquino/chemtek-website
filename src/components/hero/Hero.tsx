@@ -31,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <section aria-label="Hero" className="h-screen max-h-192 relative">
+    <section id="hero-section" aria-label="Hero" className="h-screen max-h-192 relative">
       {/* Hero background video and filters */}
       <video
         className="w-full h-full object-cover object-center absolute inset-0 -z-20"
