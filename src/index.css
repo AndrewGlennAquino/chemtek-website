@@ -6,6 +6,10 @@
   src: url(./assets/fonts/Inter.ttf);
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 body {
   @apply bg-night text-smoke font-inter;
 }
