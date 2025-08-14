@@ -13,7 +13,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@netlify/functions": "^4.2.1",
     "@tailwindcss/vite": "^4.1.11",
     "motion": "^12.23.11",
