@@ -1,6 +1,6 @@
 {
   "name": "chemtek-website",
-  "homepage": "https://andrewglennaquino.github.io/chemtek-website",
+  "homepage": "https://chemtek-website.netlify.app/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
