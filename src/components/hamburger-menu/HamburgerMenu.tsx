@@ -8,7 +8,6 @@ import {
   type Variants,
   MotionConfig,
 } from "motion/react";
-import { Link } from "react-router";
 
 interface DropdownMenuProps {
   onClick: () => void;
@@ -77,30 +76,31 @@ const DropdownMenu = ({ onClick }: DropdownMenuProps) => {
       >
         {/* Dropdown menu container with default margin and padding */}
         <div className="container mp-default py-4 flex flex-col justify-evenly gap-8">
-          <motion.div
-            className="gradient-border flex relative"
-            initial="linkInitial"
-            variants={variants}
+          <a
+            href="https://financing.approvepayments.com/chemtek"
+            target="_blank"
+            onClick={onClick}
           >
-            <div className="bg-night text-lg font-bold w-full gradient-border-content">
-              <a
-                href="https://financing.approvepayments.com/chemtek"
-                target="_blank"
-              >
+            <motion.div
+              className="gradient-border flex relative"
+              initial="linkInitial"
+              variants={variants}
+            >
+              <div className="bg-night text-lg font-bold w-full gradient-border-content">
                 Equipment Lease/Finance
-              </a>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          </a>
 
-          <motion.div
-            className="text-lg font-bold primary-button"
-            initial="linkInitial"
-            variants={variants}
-          >
-            <Link to="" onClick={onClick}>
+          <a href="#contact-section" onClick={onClick}>
+            <motion.div
+              className="text-lg font-bold primary-button"
+              initial="linkInitial"
+              variants={variants}
+            >
               Contact Us
-            </Link>
-          </motion.div>
+            </motion.div>
+          </a>
         </div>
       </motion.div>
     </MotionConfig>
