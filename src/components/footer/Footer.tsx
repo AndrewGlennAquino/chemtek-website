@@ -51,8 +51,21 @@ const Footer = () => {
 
             {/* Contact flexbox */}
             <div className="flex flex-col gap-1">
-              <a>(224) 659-0548</a>
-              <a>chemtekllc@gmail.com</a>
+              <motion.a
+                href="tel:2246590548"
+                className="underline"
+                whileHover={{ scale: 1.1 }}
+              >
+                (224) 659-0548
+              </motion.a>
+              
+              <motion.a
+                href="mailto:chemtekllc@gmail.com"
+                className="underline"
+                whileHover={{ scale: 1.1 }}
+              >
+                chemtekllc@gmail.com
+              </motion.a>
             </div>
           </div>
         </div>
