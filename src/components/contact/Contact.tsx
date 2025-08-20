@@ -46,9 +46,11 @@ const Contact = () => {
       });
 
       if (response.ok) {
+        console.log(response);
         setSuccess(true);
         setError(false);
       } else {
+        console.log(response);
         setError(true);
         setSuccess(false);
       }

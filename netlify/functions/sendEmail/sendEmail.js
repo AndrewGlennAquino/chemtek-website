@@ -24,18 +24,22 @@ export const handler = async (req, context) => {
    * Make call to MailchimpAPI to add list member, then send confirmation
    * email to given email address to confirm signup.
    */
-  const response = await mailchimp.lists.addListMember(
-    process.env.MAILCHIMP_AUDIENCE_ID,
-    {
-      email_address: email,
-      status: "subscribed",
-      merge_fields: {
-        NAME: name,
-        COMPANY: company,
-        PHONE: phone
-      }
-    }
-  );
+  // const response = await mailchimp.lists.addListMember(
+  //   process.env.MAILCHIMP_AUDIENCE_ID,
+  //   {
+  //     email_address: email,
+  //     status: "subscribed",
+  //     merge_fields: {
+  //       NAME: name,
+  //       COMPANY: company,
+  //       PHONE: phone
+  //     }
+  //   }
+  // );
+
+  const response = await mailchimp.ping.get();
+
+  console.log(response)
 
   return {
     body: JSON.stringify(response),
