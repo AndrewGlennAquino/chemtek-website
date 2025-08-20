@@ -18,9 +18,9 @@ const Equipment = () => {
           whileInView={{
             y: 0,
             opacity: 1,
-            transition: { delay: 0.5, duration: 0.4, ease: "easeOut" },
+            transition: { duration: 0.4, ease: "easeOut" },
           }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.25, once: true }}
         >
           <h2 className="text-smoke/25 text-lg font-semibold">
             Powering Your Business with Reliability and Efficiency

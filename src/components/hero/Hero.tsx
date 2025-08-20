@@ -9,7 +9,7 @@ const Hero = () => {
   const staggerVariants: Variants = {
     animateFadeIn: {
       transition: {
-        delayChildren: stagger(0.1, { startDelay: 0.5 }),
+        delayChildren: stagger(0.1, { startDelay: 0.25 }),
       },
     },
   };

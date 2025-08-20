@@ -68,7 +68,7 @@ const WhyChooseUs = () => {
               variants={{
                 animateFadeIn: {
                   transition: {
-                    delayChildren: stagger(0.1, {startDelay: 0.1}),
+                    delayChildren: stagger(0.1),
                   },
                 },
               }}
