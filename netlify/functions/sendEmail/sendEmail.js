@@ -32,13 +32,17 @@ export const handler = async (req, context) => {
       merge_fields: {
         NAME: name,
         COMPANY: company,
-        PHONE: phone
-      }
+        PHONE: phone,
+      },
     }
   );
 
   return {
-    body: JSON.stringify(response),
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": "true",
+    },
+    body: JSON.stringify(response),
   };
 };
