@@ -58,7 +58,7 @@ const Footer = () => {
               >
                 (224) 659-0548
               </motion.a>
-              
+
               <motion.a
                 href="mailto:chemtekllc@gmail.com"
                 className="underline"
@@ -70,10 +70,14 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Accredation to Flaticon */}
-        <a href="https://www.flaticon.com/" title="Icons">
-          Icons created by Freepik - Flaticon
-        </a>
+        {/* Accredation and copyright */}
+        <div className="flex flex-col items-center">
+          {/* Accredation to Flaticon */}
+          <a href="https://www.flaticon.com/" title="Icons">
+            Icons created by Freepik - Flaticon
+          </a>
+          <p>Copyright © 2025 Chemtek - All Rights Reserved.</p>
+        </div>
       </div>
     </footer>
   );
