@@ -64,6 +64,7 @@ body {
   /* Style for card shadow */
   .card-shadow {
     box-shadow: 0 0 8px var(--color-night-shade);
+    @apply bg-night;
   }
 
   /* Style for testimonial quotation marks */
