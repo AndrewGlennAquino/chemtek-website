@@ -61,7 +61,7 @@ const WhatWeDo = () => {
             src={cleanImage}
             alt="Hand wiping with towel"
             title="Cleaning Products"
-            description="We provide low cost cleaning products and services to help keep your facility clean and expenses to a minimum."
+            description="We provide efficient cleaning products and services to help keep your facility clean and expenses to a minimum."
           />
 
           <Card
