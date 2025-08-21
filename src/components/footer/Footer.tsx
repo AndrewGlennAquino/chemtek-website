@@ -8,16 +8,16 @@ const Footer = () => {
       {/* Footer container */}
       <div className="container mp-default flex flex-col gap-8">
         {/* Social media and conctact flexbox */}
-        <div className="flex gap-8 md:gap-16">
+        <div className="flex justify-center gap-8 md:gap-16">
           {/* Social media container */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-center gap-2">
             <h2 className="text-2xl font-bold">Socials</h2>
 
             {/* Links flexbox */}
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
               {/* Facebook link */}
               <motion.a
-                href="https://www.facebook.com/641706522363028"
+                href="https://www.facebook.com/people/ChemTek/61576714856145/?mibextid=wwXIfr&rdid=lDlXFjvwIooj5kUS&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15p2hnZevD%2F%3Fmibextid%3DwwXIfr"
                 target="_blank"
                 className="social-media-link"
                 whileHover={{ scale: 1.1 }}
@@ -46,11 +46,11 @@ const Footer = () => {
           </div>
 
           {/* Contact container */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-center gap-2">
             <h2 className="text-2xl font-bold">Contacts</h2>
 
             {/* Contact flexbox */}
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col items-center gap-1">
               <motion.a
                 href="tel:2246590548"
                 className="underline"
