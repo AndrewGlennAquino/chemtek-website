@@ -22,7 +22,7 @@ const Equipment = () => {
           }}
           viewport={{ amount: 0.25, once: true }}
         >
-          <h2 className="text-smoke/25 text-lg font-semibold">
+          <h2 className="subheader-shade">
             Powering Your Business with Reliability and Efficiency
           </h2>
 

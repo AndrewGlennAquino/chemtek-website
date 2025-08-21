@@ -68,7 +68,7 @@ const Testimonials = () => {
   return (
     <section
       aria-label="Testimonials"
-      className="bg-linear-to-b from-night from-50% to-aqua/50"
+      className="bg-linear-to-b from-transparent from-50% to-aqua/50"
     >
       {/* Testimonials container */}
       <div className="container mp-default flex flex-col gap-8">
