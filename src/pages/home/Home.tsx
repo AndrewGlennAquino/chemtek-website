@@ -18,7 +18,6 @@ const Home = () => {
       <ServiceArea />
       <Equipment />
       <Testimonials />
-      <Contact />
     </main>
   );
 };
