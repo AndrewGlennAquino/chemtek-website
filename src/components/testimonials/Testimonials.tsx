@@ -45,6 +45,7 @@ const Testimonial = ({ src, author, company, children }: TestimonialProps) => {
             src={src}
             alt="Temporary user image"
             className="border-4 border-chemtek w-full h-full rounded-full object-cover"
+            loading="lazy"
           />
         </div>
 
@@ -54,7 +55,7 @@ const Testimonial = ({ src, author, company, children }: TestimonialProps) => {
           <h1 className="text-2xl font-bold leading-tight">{author}</h1>
 
           {/* Author's company  */}
-          <h2 className="text-smoke/50 leading-tight">{company}</h2>
+          <h2 className="text-smoke/50 text-base font-normal leading-tight">{company}</h2>
         </div>
       </div>
     </article>

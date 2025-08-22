@@ -105,6 +105,7 @@ const WhyChooseUs = () => {
               src={whyChooseUs}
               alt="Man doing repairs"
               className="w-full h-full object-cover object-center rounded-lg"
+              loading="lazy"
             />
           </div>
         </div>
