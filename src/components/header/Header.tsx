@@ -1,5 +1,6 @@
 import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
 import { motion } from "motion/react";
+import { Link } from "react-router";
 
 /**
  * Header component that contains logo and responsive nav
@@ -10,15 +11,13 @@ const Header = () => {
       {/* Header container */}
       <div className="container w-full h-16 mp-default py-4 flex justify-between items-center overflow-hidden">
         {/* Header logo */}
-        <motion.a
-          href="#hero-section"
-          className="logo relative"
-          whileHover={{ scale: 1.1 }}
-        >
-          {/* Background glow */}
-          <div className="bg-aqua/20 blur-md w-32 h-32 absolute left-1 -bottom-12 -z-10 rounded-full" />
-          CHEMTEK
-        </motion.a>
+        <Link to="/">
+          <motion.div className="logo relative" whileHover={{ scale: 1.1 }}>
+            {/* Background glow */}
+            <div className="bg-aqua/20 blur-md w-32 h-32 absolute left-1 -bottom-12 -z-10 rounded-full" />
+            <span>CHEMTEK</span>
+          </motion.div>
+        </Link>
 
         {/* Responsive navigation menu */}
         <nav>
