@@ -8,13 +8,15 @@ const Header = () => {
   return (
     <header className="bg-night header-shadow fixed sm:sticky top-0 left-0 right-0 z-50">
       {/* Header container */}
-      <div className="container w-full h-16 mp-default py-4 flex justify-between items-center">
+      <div className="container w-full h-16 mp-default py-4 flex justify-between items-center overflow-hidden">
         {/* Header logo */}
         <motion.a
           href="#hero-section"
           className="logo relative"
           whileHover={{ scale: 1.1 }}
         >
+          {/* Background glow */}
+          <div className="bg-aqua/20 blur-md w-32 h-32 absolute left-1 -bottom-12 -z-10 rounded-full" />
           CHEMTEK
         </motion.a>
 
