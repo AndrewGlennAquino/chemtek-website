@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply bg-night bg-[radial-gradient(#6e637e33_1px,#1e1b22_1px)] bg-[size:20px_20px];
+  @apply bg-night bg-[radial-gradient(#645a7233_1px,#1e1b22_1px)] bg-[size:20px_20px];
 }
 
 @theme {
