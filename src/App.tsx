@@ -1,4 +1,5 @@
 import Header from "./components/header/Header";
+import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
 import FirstTimeCleaning from "./pages/first-time-cleaning/FirstTimeCleaning";
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/first-time-cleaning" element={<FirstTimeCleaning />} />
       </Routes>
+      <Contact />
       <Footer />
     </>
   );
