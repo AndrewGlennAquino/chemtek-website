@@ -133,6 +133,7 @@ const HamburgerMenu = () => {
             <motion.div
               className="hamburger-menu-bar"
               animate={clicked ? { y: 8, rotate: 225 } : undefined}
+              transition={{ duration: 0.15 }}
             />
             <motion.div
               className="hamburger-menu-bar"
@@ -145,6 +146,7 @@ const HamburgerMenu = () => {
             <motion.div
               className="hamburger-menu-bar"
               animate={clicked ? { y: -8, rotate: -225 } : undefined}
+              transition={{ duration: 0.15 }}
             />
           </MotionConfig>
         </div>
