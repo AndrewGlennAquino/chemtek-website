@@ -1,12 +1,12 @@
 /**
  * Page that can only be accessed via a promotional QR code
  */
-const FirstTimeSpecials = () => {
+const FirstTimeCleaning = () => {
   return (
     <main>
-      First Time Specials
+      First Time Cleaning
     </main>
   );
 }
 
-export default FirstTimeSpecials;
+export default FirstTimeCleaning;
