@@ -12,9 +12,12 @@ const Header = () => {
       <div className="container w-full h-16 mp-default py-4 flex justify-between items-center overflow-hidden">
         {/* Header logo */}
         <Link to="/">
-          <motion.div className="logo relative" whileHover={{ scale: 1.1 }}>
+          <motion.div
+            className="logo relative flex justify-center items-center"
+            whileHover={{ scale: 1.1 }}
+          >
             {/* Background glow */}
-            <div className="bg-aqua/20 blur-md w-32 h-32 absolute left-1 -bottom-12 -z-10 rounded-full" />
+            <div className="bg-aqua/20 blur-md w-32 h-32 absolute -z-10 rounded-full" />
             <span>CHEMTEK</span>
           </motion.div>
         </Link>
