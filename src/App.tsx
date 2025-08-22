@@ -1,7 +1,7 @@
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
-import FirstTimeSpecials from "./pages/first-time-special/FirstTimeSpecial";
+import FirstTimeCleaning from "./pages/first-time-cleaning/FirstTimeCleaning";
 import { Routes, Route } from "react-router";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/first-time-specials" element={<FirstTimeSpecials />} />
+        <Route path="/first-time-cleaning" element={<FirstTimeCleaning />} />
       </Routes>
       <Footer />
     </>
