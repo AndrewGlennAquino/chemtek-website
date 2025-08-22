@@ -104,4 +104,9 @@ body {
   .subheader-shade {
     @apply text-smoke/25 text-lg font-semibold;
   }
+
+  /* Style for paragraph text shade */
+  .paragraph-shade {
+    @apply text-smoke/50;
+  }
 }
