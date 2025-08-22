@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply bg-night bg-[radial-gradient(#645a7233_1px,#1e1b22_1px)] bg-[size:20px_20px];
+  @apply bg-night bg-[radial-gradient(#70707033_1px,#1e1b22_1px)] bg-[size:20px_20px];
 }
 
 @theme {
@@ -28,6 +28,9 @@ body {
   h1 {
     @apply text-3xl font-bold;
   }
+  h2 {
+    @apply text-lg font-semibold;
+  }
 }
 
 @layer components {
@@ -38,7 +41,7 @@ body {
 
   /* Style for hamburger menu bars */
   .hamburger-menu-bar {
-    @apply bg-smoke w-8 h-1 rounded-lg;
+    @apply bg-smoke w-8 h-1 rounded-md;
   }
 
   /* Style for header shadow */
