@@ -8,7 +8,7 @@ const Footer = () => {
       {/* Footer container */}
       <div className="container mp-default flex flex-col gap-8">
         {/* Social media and conctact flexbox */}
-        <div className="flex justify-center gap-8 md:gap-16">
+        <div className="flex justify-center lg:justify-start gap-8 md:gap-16">
           {/* Social media container */}
           <div className="flex flex-col items-center gap-2">
             <h2 className="text-2xl font-bold">Socials</h2>
