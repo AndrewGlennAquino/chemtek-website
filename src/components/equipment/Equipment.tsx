@@ -9,7 +9,7 @@ const Equipment = () => {
       {/* Equipment container */}
       <div className="container mp-default flex flex-col gap-8">
         {/* Equipment header */}
-        <h1 className="text-balance">Equipment Lease/Fianance</h1>
+        <h1 className="text-balance">Equipment Fianance</h1>
 
         {/* Equpment text container */}
         <motion.div
