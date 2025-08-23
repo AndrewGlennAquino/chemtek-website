@@ -30,40 +30,55 @@ const ChemicalProgram = () => {
             <div>
               <h2>Free Labor on Repairs</h2>
               <p className="paragraph-shade">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Architecto facere consequatur maxime iusto repellat officiis sed
-                illum inventore deleniti quibusdam ullam reprehenderit
-                doloremque atque quos perferendis, eum blanditiis!
+                Reduce you repair costs by singing up for our program, where you
+                will only pay for any necessary parts. This approach will not
+                only save you money but will also ensure that you, our valued
+                customer, gets the most out of your investment.
               </p>
             </div>
 
             <div>
               <h2>Free Preventative Maintainence</h2>
               <p className="paragraph-shade">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Architecto facere consequatur maxime iusto repellat officiis sed
-                illum inventore deleniti quibusdam ullam reprehenderit
-                doloremque atque quos perferendis, eum blanditiis!
+                Our chemical program includes complementary preventative
+                maintainence services. This is yet another opportunity for us to
+                help you save money and to begin helping you keep your equipment
+                in optimal condition, as well as reducing the risk of any
+                unexpected breakdowns.
+                <br />
+                <br />
+                Don't miss out on this chance to enhance the longevity and
+                efficiency of you assets!
               </p>
             </div>
 
             <div>
               <h2>10% OFF every 5th Chemical Order</h2>
               <p className="paragraph-shade">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Architecto facere consequatur maxime iusto repellat officiis sed
-                illum inventore deleniti quibusdam ullam reprehenderit
-                doloremque atque quos perferendis, eum blanditiis!
+                Sign up today & enjoy an additoinal customer perk which includes
+                10% off every 5th chemical order.
+                <br />
+                <br />
+                Experience the benefits of our rewards program for every
+                purchase you make*
+                <br />
+                <br />
+                <span className="text-xs">
+                  *Offer subject to change - terms and conditions may apply
+                </span>
               </p>
             </div>
 
             <div>
               <h2>Discounts on ICE machine services when applicable</h2>
               <p className="paragraph-shade">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Architecto facere consequatur maxime iusto repellat officiis sed
-                illum inventore deleniti quibusdam ullam reprehenderit
-                doloremque atque quos perferendis, eum blanditiis!
+                Our chemical program will allow you to enjoy exclusive discounts
+                on ice machine services*
+                <br />
+                <br />
+                <span className="text-xs">
+                  *Offer subject to change - terms and conditions may apply
+                </span>
               </p>
             </div>
           </div>
