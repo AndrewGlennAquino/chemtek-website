@@ -1,4 +1,4 @@
-import chemtekPromotion from "../../assets/images/chemtek-promotion.png";
+import iceMachine from "../../assets/images/first-time-cleaning-image.webp";
 
 /**
  * Page that can only be accessed via a promotional QR code
@@ -19,12 +19,19 @@ const FirstTimeCleaning = () => {
         {/* Image and text container */}
         <div className="flex flex-col lg:flex-row-reverse items-center gap-4">
           {/* Image container */}
-          <div className="w-full sm:max-w-64 lg:max-w-96">
+          <div className="w-full sm:max-w-64 lg:max-w-96 relative">
             <img
-              src={chemtekPromotion}
+              src={iceMachine}
               className="card-shadow w-full h-auto object-cover object-center rounded-md"
               loading="lazy"
             />
+            {/* Sticker overlay */}
+            <div className="bg-radial from-chemtek to-aqua text-night font-bold w-32 h-32 rounded-full flex justify-center items-center absolute top-0 right-0">
+              <p className="text-xl">
+                Only $80
+                <span className="text-xs relative bottom-1">*</span>
+              </p>
+            </div>
           </div>
 
           {/* Text container */}
@@ -51,7 +58,7 @@ const FirstTimeCleaning = () => {
             </div>
 
             <div>
-              <h2>Why Routine Maintainance & Cleaning Matter!</h2>
+              <h2>Why Routine Maintainance & Cleaning Matter</h2>
               <p className="paragraph-shade">
                 Commercial ice machines must be serviced at LEAST every 3-6
                 months to maintain cleanliness and prevent hard water build up.
@@ -59,6 +66,27 @@ const FirstTimeCleaning = () => {
                 ice quality, and also extend the lifespan of your ice machine.
                 Ask how ChemTek can help keep your machine up to date!
               </p>
+            </div>
+
+            <div>
+              <h2>10 Day Warranty</h2>
+              <p className="paragraph-shade">
+                Experience peace of mind with our 10-day warranty, designed to
+                ensure your satisfaction and confidence in your purchase. This
+                guarantee reflects our commitment to quality and customer care,
+                allowing you to shop with assurance**
+              </p>
+            </div>
+
+            <div>
+              <span className="paragraph-shade text-xs">
+                *Terms and conditions may apply
+              </span>
+              <br />
+              <span className="paragraph-shade text-xs">
+                **10 day warranty only applies to cleaning related defects and
+                not sudden part failures
+              </span>
             </div>
           </div>
         </div>
