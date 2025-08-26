@@ -1,5 +1,5 @@
 import { motion, MotionConfig, stagger, type Variants } from "motion/react";
-import heroVideo from "../../../public/hero-video.mp4";
+import heroVideo from "../../assets/videos/hero-video.mp4";
 
 /**
  * Hero component for Home page
@@ -31,7 +31,11 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero-section" aria-label="Hero" className="h-screen max-h-192 relative">
+    <section
+      id="hero-section"
+      aria-label="Hero"
+      className="h-screen max-h-192 relative"
+    >
       {/* Hero background video and filters */}
       <video
         className="w-full h-full object-cover object-center absolute inset-0 -z-20"
@@ -58,10 +62,7 @@ const Hero = () => {
               className="text-smoke text-4xl font-bold"
               variants={fadeInVariants}
             >
-              We Are{" "}
-              <span className="gradient-text">
-                ChemTek
-              </span>
+              We Are <span className="gradient-text">ChemTek</span>
             </motion.h1>
 
             <motion.h2
