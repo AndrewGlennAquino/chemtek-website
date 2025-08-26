@@ -30,7 +30,7 @@ const ChemicalProgram = () => {
             <div>
               <h2>Free Labor on Repairs</h2>
               <p className="paragraph-shade">
-                Reduce you repair costs by singing up for our program, where you
+                Reduce your repair costs by signing up for our program, where you
                 will only pay for any necessary parts. This approach will not
                 only save you money but will also ensure that you, our valued
                 customer, gets the most out of your investment.
@@ -48,7 +48,7 @@ const ChemicalProgram = () => {
                 <br />
                 <br />
                 Don't miss out on this chance to enhance the longevity and
-                efficiency of you assets!
+                efficiency of your assets!
               </p>
             </div>
 

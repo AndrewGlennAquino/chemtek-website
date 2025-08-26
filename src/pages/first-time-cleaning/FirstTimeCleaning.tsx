@@ -1,4 +1,4 @@
-import chemtekLogo from "../../assets/images/chemtek-logo.png";
+import chemtekPromotion from "../../assets/images/chemtek-promotion.png";
 
 /**
  * Page that can only be accessed via a promotional QR code
@@ -21,7 +21,7 @@ const FirstTimeCleaning = () => {
           {/* Image container */}
           <div className="w-full sm:max-w-64 lg:max-w-96">
             <img
-              src={chemtekLogo}
+              src={chemtekPromotion}
               className="card-shadow w-full h-auto object-cover object-center rounded-md"
               loading="lazy"
             />
