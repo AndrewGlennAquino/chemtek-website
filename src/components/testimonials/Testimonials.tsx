@@ -17,7 +17,7 @@ interface TestimonialProps {
  */
 const Testimonial = ({ src, author, company, children }: TestimonialProps) => {
   return (
-    <article
+    <div
       aria-label={`Testimonial from ${author} on FaceBook`}
       className="w-full h-full rounded-lg flex flex-col gap-4"
     >
@@ -58,7 +58,7 @@ const Testimonial = ({ src, author, company, children }: TestimonialProps) => {
           <h2 className="text-smoke/50 text-base font-normal leading-tight">{company}</h2>
         </div>
       </div>
-    </article>
+    </div>
   );
 };
 
