@@ -6,13 +6,20 @@ import FirstTimeCleaning from "./pages/first-time-cleaning/FirstTimeCleaning";
 import ChemicalProgram from "./pages/chemical-program/ChemicalProgram";
 import PageNotFound from "./pages/page-not-found/PageNotFound";
 import { Routes, Route } from "react-router";
+import Admin from "./pages/admin/Admin";
 
 const App = () => {
   return (
     <>
       <Header />
       <Routes>
+        {/* Landing page */}
         <Route path="/" element={<Home />} />
+
+        {/* Admin page */}
+        <Route path="/admin" element={<Admin />} />
+
+        {/* Promotional pages */}
         <Route path="/firsttimecleaning" element={<FirstTimeCleaning />} />
         <Route path="/chemicalprogram" element={<ChemicalProgram />} />
 
