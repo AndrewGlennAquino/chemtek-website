@@ -10,8 +10,6 @@
 
 export const handler = async (req, context) => {
   try {
-    console.log(req.body);
-
     const response = await fetch("http://localhost:3000/postBlog", {
       method: "POST",
       headers: {
