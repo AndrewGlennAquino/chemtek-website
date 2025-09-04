@@ -1,7 +1,9 @@
+const { Sequelize, QueryTypes } = require("sequelize");
+
 /**
  * Handle HTTP POST request to this endpoint.
- * Pull title and body for blog, then make POST
- * request to Render PostgreSQL server.
+ * Pull title and body from request body, then
+ * make POST request to Render PostgreSQL server.
  *
  * @param {*} req http request to endpoint
  * @param {*} context http request metadata
@@ -9,29 +11,42 @@
  */
 
 export const handler = async (req, context) => {
-  try {
-    const response = await fetch("http://localhost:3000/postBlog", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  // Parse request body then destructure
+  const data = JSON.parse(req.body);
+  const { postTitle, postBody } = data;
+
+  // Create new sequelize object that connects to database url with options
+  const sequelize = new Sequelize(process.env.DB_URL, {
+    dialect: "postgres",
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
       },
-      body: JSON.stringify(req),
+    },
+    protocol: "postgres",
+    logging: false,
+  });
+
+  // Create paramterized query, then insert into blog_posts table
+  try {
+    const parameterizedQuery = `INSERT INTO blog_schema.blog_posts (post_title, post_body) VALUES ('${postTitle}', '${postBody}');`;
+
+    const posts = await sequelize.query(parameterizedQuery, {
+      type: QueryTypes.INSERT,
     });
+    console.log(posts);
 
-    if (response.ok) {
-      console.log("Successful POST from postBlog");
-    } else {
-      console.log(
-        "There was a problem during POST from postBlog",
-        response.status
-      );
-    }
-  } catch (error) {
-    console.error("There was an error during submission from postBlog!", error);
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "Works!" }),
+    };
+  } catch (err) {
+    console.log(err);
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Doesn't work!" }),
+    };
   }
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify("Works!"),
-  };
 };
