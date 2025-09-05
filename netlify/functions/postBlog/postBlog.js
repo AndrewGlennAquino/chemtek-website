@@ -1,11 +1,11 @@
-const { Sequelize, QueryTypes } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 
 /**
  * Handle HTTP POST request to this endpoint.
  * Pull title and body from request body, then
  * make POST request to Render PostgreSQL server.
  *
- * @param {*} req http request to endpoint
+ * @param {*} req http request to this endpoint
  * @param {*} context http request metadata
  * @returns http response from Render PostgreSQL server
  */
@@ -17,6 +17,7 @@ export const handler = async (req, context) => {
 
   // Create new sequelize object that connects to database url with options
   const sequelize = new Sequelize(process.env.DB_URL, {
+    schema: "blog_schema",
     dialect: "postgres",
     dialectOptions: {
       ssl: {
@@ -28,25 +29,61 @@ export const handler = async (req, context) => {
     logging: false,
   });
 
-  // Create paramterized query, then insert into blog_posts table
-  try {
-    const parameterizedQuery = `INSERT INTO blog_schema.blog_posts (post_title, post_body) VALUES ('${postTitle}', '${postBody}');`;
+  /**
+   * Define blog_posts sequelize model as a table in
+   * blog_schema.blog_posts. All CRUD operations operate
+   * on this table.
+   */
+  const blog_posts = sequelize.define(
+    "blog_posts",
+    {
+      post_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true,
+      },
+      post_title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      post_body: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+    },
+    {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    }
+  );
 
-    const posts = await sequelize.query(parameterizedQuery, {
-      type: QueryTypes.INSERT,
+  /**
+   * Try to sync model to database. On successful sync,
+   * create blog post, close connection, then return success code and message.
+   * On error, close connection then return server error code and error message.
+   */
+  try {
+    // Connect to table within database
+    await blog_posts.sync();
+
+    // Insert into blog_posts title and body values, then close connection
+    await blog_posts.create({
+      post_title: postTitle,
+      post_body: postBody,
     });
-    console.log(posts);
+    sequelize.close();
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Works!" }),
+      body: JSON.stringify({ message: "Successful POST" }),
     };
   } catch (err) {
-    console.log(err);
+    sequelize.close();
 
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Doesn't work!" }),
+      body: JSON.stringify({ message: err }),
     };
   }
 };
