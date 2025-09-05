@@ -16,8 +16,8 @@ const App = () => {
         {/* Landing page */}
         <Route path="/" element={<Home />} />
 
-        {/* Admin page */}
-        <Route path="/admin" element={<Admin />} />
+        {/* Admin page with obscure endpoint to deter bots*/}
+        <Route path="/chemtekkers" element={<Admin />} />
 
         {/* Promotional pages */}
         <Route path="/firsttimecleaning" element={<FirstTimeCleaning />} />
