@@ -62,8 +62,14 @@ export const handler = async (req, context) => {
     // Connect to table within database
     await blog_posts.sync();
 
-    // Get all blogs from blog_schema.blog_posts, then close connection
-    const allBlogs = await blog_posts.findAll();
+    /**
+     * Get all blogs from blog_schema.blog_posts
+     * in descending order (newest to latest), 
+     * then close connection.
+     */
+    const allBlogs = await blog_posts.findAll({
+      order: [["created_at", "DESC"]],
+    });
     sequelize.close();
 
     return {
