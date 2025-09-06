@@ -10,7 +10,7 @@ export type BlogObject = {
 };
 
 /**
- * Custom hook that fetches all blogs from server, 
+ * Custom hook that fetches all blogs from server,
  * then returns array of blog objects
  */
 export const useGetAllBlogs = (): BlogObject[] => {
@@ -33,15 +33,10 @@ export const useGetAllBlogs = (): BlogObject[] => {
           },
         });
 
-        // TODO: comment
         if (response.ok) {
           const data: BlogObject[] = await response.json();
 
           setAllBlogs(data);
-
-          data.forEach((blog) => {
-            console.log(blog);
-          });
         } else {
           console.log("Unsuccessful GET request", response.status);
         }
