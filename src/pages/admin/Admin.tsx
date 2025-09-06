@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { NewBlogPopupContext } from "../../contexts/NewBlogPopupContext";
+import { useGetAllBlogs } from "../../hooks/useGetAllBlogs";
 
 // Prop types for blogs
 interface BlogProps {
@@ -25,9 +26,8 @@ const Blog = ({ title, body }: BlogProps) => {
 
 /**
  * Popup component that collects user input for the
- * title and body of a new blog post. Takes open prop
- * to open and close popup menu
- * @param props open
+ * title and body of a new blog post. Handles POST request
+ * on submit.
  */
 const NewPostPopup = () => {
   // Get state context value and function
@@ -38,10 +38,10 @@ const NewPostPopup = () => {
   const [postBody, setPostBody] = useState<string>("");
 
   /**
-   * Function that handles closing the form.
+   * Function that sets post title and body
+   * to empty strings, then close popup window.
    */
   const handleClose = () => {
-    // set post title and body to empty strings, then close
     if (setIsOpen) {
       setPostTitle("");
       setPostBody("");
@@ -62,7 +62,8 @@ const NewPostPopup = () => {
 
     /**
      * Try POST request to postBlog Netlify function with
-     * stringified submission object.
+     * stringified submission object. On successful response,
+     * close popup window. Catch error and console.log.
      */
     try {
       const response = await fetch("/.netlify/functions/postBlog", {
@@ -74,12 +75,10 @@ const NewPostPopup = () => {
       });
 
       if (response.ok) {
-        console.log("Successful POST from Admin!");
-      } else {
-        console.log("There was a problem during POST from Admin!");
+        handleClose();
       }
-    } catch (error) {
-      console.error("There was an error during POST from Admin!", error);
+    } catch (err) {
+      console.error("Unsuccessful POST request", err);
     }
   };
 
@@ -154,7 +153,7 @@ const NewPostPopup = () => {
             ></textarea>
           </div>
 
-          {/* Submit title and body */}
+          {/* Submit post title and body */}
           <button onClick={handleSubmit}>Submit</button>
         </form>
       </div>
@@ -168,6 +167,9 @@ const NewPostPopup = () => {
 const Admin = () => {
   // Hold in state if the popup is open or closed
   const [isOpen, setIsOpen] = useState(false);
+
+  // Get all blogs using custom hook
+  const allBlogs = useGetAllBlogs();
 
   return (
     <main>
@@ -191,6 +193,7 @@ const Admin = () => {
               </button>
 
               {/* Remove blog post button */}
+              {/* TODO: add functionality to remove posts */}
               <button className="gradient-border cursor-pointer">
                 <div className="bg-night gradient-border-content text-sm">
                   Delete Blog Post -
@@ -199,11 +202,15 @@ const Admin = () => {
             </div>
 
             {/* Blogs container */}
-            <div id="blogs-container" className="grid md:grid-cols-2 gap-4">
-              <Blog
-                title="This is a test title!"
-                body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum qui ipsam natus cupiditate iste, sequi odio doloremque eos quis itaque dolorum cum aliquam odit perferendis unde, nobis aperiam temporibus molestiae. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum fuga earum soluta ea inventore accusamus? Inventore illo iure atque odio saepe maxime officia nam, vitae illum porro deserunt quidem doloremque."
-              />
+            <div className="grid md:grid-cols-2 gap-4">
+              {/* Create a new blog card for each blog from server */}
+              {allBlogs.map((blog) => (
+                <Blog
+                  key={blog.post_id}
+                  title={blog.post_title}
+                  body={blog.post_body}
+                />
+              ))}
             </div>
           </div>
         </div>
