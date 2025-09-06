@@ -7,9 +7,9 @@ const { Sequelize, DataTypes } = require("sequelize");
  *
  * @param {*} req http request to this endpoint
  * @param {*} context http request metadata
- * @returns http response from Render PostgreSQL server
+ * @returns 200 status code and message on success
+ * @returns 500 status code and message on failure
  */
-
 export const handler = async (req, context) => {
   // Parse request body then destructure
   const data = JSON.parse(req.body);
