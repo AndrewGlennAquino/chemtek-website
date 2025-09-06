@@ -7,6 +7,7 @@ import ChemicalProgram from "./pages/chemical-program/ChemicalProgram";
 import PageNotFound from "./pages/page-not-found/PageNotFound";
 import { Routes, Route } from "react-router";
 import Admin from "./pages/admin/Admin";
+import { Blogs } from "./pages/blogs/Blogs";
 
 const App = () => {
   return (
@@ -15,6 +16,9 @@ const App = () => {
       <Routes>
         {/* Landing page */}
         <Route path="/" element={<Home />} />
+
+        {/* Blogs page */}
+        <Route path="/blogs" element={<Blogs />} />
 
         {/* Admin page with obscure endpoint to deter bots*/}
         <Route path="/chemtekkers" element={<Admin />} />
