@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { NewBlogPopupContext } from "../../contexts/NewBlogPopupContext";
 import { useGetAllBlogs } from "../../hooks/useGetAllBlogs";
+import { useAuth0 } from "@auth0/auth0-react";
+import { motion } from "motion/react";
 
 // Prop types for blogs
 interface BlogProps {
@@ -10,6 +12,7 @@ interface BlogProps {
 
 /**
  * Blog object that creates a blog card
+ * TODO: add functionality to read more button
  * @param props title, body
  */
 const Blog = ({ title, body }: BlogProps) => {
@@ -53,6 +56,7 @@ const NewPostPopup = () => {
    * Handle POST request for creating a new blog.
    * Stringify postTitle and postBody, then send
    * POST request to postBlog Netlify function.
+   * On successful submission, trigger website rebuild.
    */
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -63,7 +67,9 @@ const NewPostPopup = () => {
     /**
      * Try POST request to postBlog Netlify function with
      * stringified submission object. On successful response,
-     * close popup window. Catch error and console.log.
+     * close the popup and try POST request to postBuildHook
+     * Netlify function with empty body. Console log response
+     * of build response fetch.
      */
     try {
       const response = await fetch("/.netlify/functions/postBlog", {
@@ -76,6 +82,24 @@ const NewPostPopup = () => {
 
       if (response.ok) {
         handleClose();
+
+        // Try POST request to build hook to trigger rebuild
+        try {
+          const buildResponse = await fetch(
+            "/.netlify/functions/postBuildHook",
+            {
+              method: "POST",
+            }
+          );
+
+          if (buildResponse.ok) {
+            console.log(buildResponse.body);
+          } else {
+            console.log(buildResponse.body);
+          }
+        } catch (err) {
+          console.error(err);
+        }
       }
     } catch (err) {
       console.error("Unsuccessful POST request", err);
@@ -165,13 +189,15 @@ const NewPostPopup = () => {
  * Admin page that allows the admin to add or remove blog posts
  */
 const Admin = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+
   // Hold in state if the popup is open or closed
   const [isOpen, setIsOpen] = useState(false);
 
   // Get all blogs using custom hook
   const allBlogs = useGetAllBlogs();
 
-  return (
+  return isAuthenticated ? (
     <main>
       {/* Provide isOpen and setIsOpen context to all children */}
       <NewBlogPopupContext.Provider value={{ isOpen, setIsOpen }}>
@@ -195,10 +221,33 @@ const Admin = () => {
               {/* Remove blog post button */}
               {/* TODO: add functionality to remove posts */}
               <button className="gradient-border cursor-pointer">
-                <div className="bg-night gradient-border-content text-sm">
+                <div className="bg-night gradient-border-content text-sm w-full h-full ">
                   Delete Blog Post -
                 </div>
               </button>
+
+              {/* Logout button */}
+              <motion.button
+                className="gradient-border cursor-pointer"
+                onClick={() =>
+                  logout({ logoutParams: { returnTo: window.location.origin } })
+                }
+                whileHover="animateHover"
+              >
+                <motion.div
+                  className="gradient-border-content w-full h-full"
+                  initial={{ background: "rgba(30, 27, 34, 1)" }}
+                  whileHover="animateHover"
+                  variants={{
+                    animateHover: {
+                      background: "rgba(30, 27, 34, 0)",
+                      color: "var(--color-night)",
+                    },
+                  }}
+                >
+                  Logout
+                </motion.div>
+              </motion.button>
             </div>
 
             {/* Blogs container */}
@@ -218,6 +267,48 @@ const Admin = () => {
         {/* Popup form for new blog post */}
         <NewPostPopup />
       </NewBlogPopupContext.Provider>
+    </main>
+  ) : (
+    <main>
+      {/* Login/Logout button container */}
+      <div className="container mp-default pt-24 md:pt-8">
+        {/* Button flexbox */}
+        <div className="flex gap-2">
+          {/* Login button */}
+          <motion.button
+            className="primary-button cursor-pointer"
+            onClick={() => loginWithRedirect()}
+            whileHover={{
+              scale: 1.05,
+            }}
+          >
+            Login
+          </motion.button>
+
+          {/* Logout button */}
+          <motion.button
+            className="gradient-border cursor-pointer"
+            onClick={() =>
+              logout({ logoutParams: { returnTo: window.location.origin } })
+            }
+            whileHover="animateHover"
+          >
+            <motion.div
+              className="gradient-border-content w-full h-full"
+              initial={{ background: "rgba(30, 27, 34, 1)" }}
+              whileHover="animateHover"
+              variants={{
+                animateHover: {
+                  background: "rgba(30, 27, 34, 0)",
+                  color: "var(--color-night)",
+                },
+              }}
+            >
+              Logout
+            </motion.div>
+          </motion.button>
+        </div>
+      </div>
     </main>
   );
 };
