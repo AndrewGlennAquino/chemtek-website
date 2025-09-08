@@ -8,6 +8,7 @@ interface BlogProps {
 
 /**
  * Blog object that creates a blog card
+ * TODO: add functionality to read more button
  * @param props title, body
  */
 const Blog = ({ title, body }: BlogProps) => {
