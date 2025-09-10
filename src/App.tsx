@@ -18,8 +18,9 @@ const App = () => {
         domain="dev-g473uzff0iy3v1fo.us.auth0.com"
         clientId="TtvIjcf7sTRgc1V1kHXcuAsL3y8qkkah"
         authorizationParams={{
-          // TODO: change url https://chemtek.services/chemtekkers
-          redirect_uri: "http://localhost:8888/chemtekkers",
+          // TODO: change url https://chemtek.services/blog/chemtekkers
+          // Allowed callback url on Auth0
+          redirect_uri: "http://localhost:8888/blog/chemtekkers",
         }}
       >
         <Routes>
@@ -27,10 +28,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
 
           {/* Blogs page */}
-          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog" element={<Blogs />} />
 
           {/* Admin page with obscure endpoint to deter bots*/}
-          <Route path="/chemtekkers" element={<Admin />} />
+          <Route path="/blog/chemtekkers" element={<Admin />} />
 
           {/* Promotional pages */}
           <Route path="/firsttimecleaning" element={<FirstTimeCleaning />} />

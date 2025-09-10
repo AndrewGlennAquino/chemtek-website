@@ -230,7 +230,10 @@ const Admin = () => {
               <motion.button
                 className="gradient-border cursor-pointer"
                 onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
+                  logout({ 
+                    // Allowed logout url on Auth0
+                    logoutParams: { returnTo: window.location.origin } 
+                  })
                 }
                 whileHover="animateHover"
               >
