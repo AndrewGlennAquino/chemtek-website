@@ -36,7 +36,7 @@ export const Blogs = () => {
       {/* Blogs containerr */}
       <div className="container mp-default pt-24 md:pt-8">
         {/* Blogs header */}
-        <h1>Blogs</h1>
+        <h1>Blog</h1>
 
         {/* Blog cards container */}
         <div className="grid md:grid-cols-2 gap-4">
