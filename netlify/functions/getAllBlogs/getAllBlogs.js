@@ -26,7 +26,7 @@ const loadSequelize = async () => {
       min: 0,
       idle: 0,
       acquire: 3000,
-      evict: 3600,
+      evict: 7200,
     },
   });
 
@@ -103,7 +103,6 @@ export const handler = async (req, context) => {
       const allBlogs = await blog_posts.findAll({
         order: [["created_at", "DESC"]],
       });
-      sequelize.close();
 
       return {
         statusCode: 200,
@@ -112,12 +111,12 @@ export const handler = async (req, context) => {
     } catch (err) {
       console.log(err);
 
-      sequelize.close();
-
       return {
         statusCode: 500,
         body: JSON.stringify({ message: err }),
       };
+    } finally {
+      await sequelize.connectionManager.close();
     }
   }
 };
