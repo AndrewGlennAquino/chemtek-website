@@ -45,10 +45,6 @@ const Blog = ({ postId, title, body }: BlogProps) => {
     try {
       const response = await fetch("/.netlify/functions/deleteBlog", {
         method: "DELETE",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "DELETE",
-        },
         body: JSON.stringify(postId),
       });
 
@@ -61,10 +57,6 @@ const Blog = ({ postId, title, body }: BlogProps) => {
             "/.netlify/functions/postBuildHook",
             {
               method: "POST",
-              headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "POST",
-              },
             }
           );
 
@@ -197,9 +189,6 @@ const NewPostPopup = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Methods": "POST",
         },
         body: JSON.stringify(submission),
       });
@@ -213,10 +202,6 @@ const NewPostPopup = () => {
             "/.netlify/functions/postBuildHook",
             {
               method: "POST",
-              headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "POST",
-              },
             }
           );
 
