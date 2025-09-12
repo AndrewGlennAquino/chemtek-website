@@ -74,11 +74,6 @@ export const handler = async (req, context) => {
 
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "GET"
-      },
       body: JSON.stringify(allBlogs),
     };
   } catch (err) {
@@ -86,11 +81,6 @@ export const handler = async (req, context) => {
 
     return {
       statusCode: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "GET"
-      },
       body: JSON.stringify({ message: err }),
     };
   }
