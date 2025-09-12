@@ -56,67 +56,67 @@ export const handler = async (req, context) => {
     if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
       delete sequelize.connectionManager.getConnection;
     }
+  }
 
-    /**
-     * Define blog_posts sequelize model as a table in
-     * blog_schema.blog_posts. All CRUD operations operate
-     * on this table.
-     */
-    const blog_posts = sequelize.define(
-      "blog_posts",
-      {
-        post_id: {
-          type: DataTypes.INTEGER,
-          autoIncrement: true,
-          allowNull: false,
-          primaryKey: true,
-        },
-        post_title: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        post_body: {
-          type: DataTypes.TEXT,
-          allowNull: false,
-        },
+  /**
+   * Define blog_posts sequelize model as a table in
+   * blog_schema.blog_posts. All CRUD operations operate
+   * on this table.
+   */
+  const blog_posts = sequelize.define(
+    "blog_posts",
+    {
+      post_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true,
       },
-      {
-        createdAt: "created_at",
-        updatedAt: "updated_at",
-      }
-    );
+      post_title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      post_body: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+    },
+    {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    }
+  );
+
+  /**
+   * Try to sync model to database. On successful sync, get all blog posts,
+   * then return successful code and JSON of all blogs. On error, close
+   * connection then return server error code and error message.
+   */
+  try {
+    // Connect to table within database
+    await blog_posts.sync();
 
     /**
-     * Try to sync model to database. On successful sync, get all blog posts,
-     * then return successful code and JSON of all blogs. On error, close
-     * connection then return server error code and error message.
+     * Get all blogs from blog_schema.blog_posts
+     * in descending order (newest to latest),
+     * then close connection.
      */
-    try {
-      // Connect to table within database
-      await blog_posts.sync();
+    const allBlogs = await blog_posts.findAll({
+      order: [["created_at", "DESC"]],
+    });
 
-      /**
-       * Get all blogs from blog_schema.blog_posts
-       * in descending order (newest to latest),
-       * then close connection.
-       */
-      const allBlogs = await blog_posts.findAll({
-        order: [["created_at", "DESC"]],
-      });
+    return {
+      statusCode: 200,
+      body: JSON.stringify(allBlogs),
+    };
+  } catch (err) {
+    console.log(err);
 
-      return {
-        statusCode: 200,
-        body: JSON.stringify(allBlogs),
-      };
-    } catch (err) {
-      console.log(err);
-
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ message: err }),
-      };
-    } finally {
-      await sequelize.connectionManager.close();
-    }
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: err }),
+    };
+  } finally {
+    await sequelize.connectionManager.close();
   }
 };
