@@ -18,9 +18,8 @@ const App = () => {
         domain="dev-g473uzff0iy3v1fo.us.auth0.com"
         clientId="TtvIjcf7sTRgc1V1kHXcuAsL3y8qkkah"
         authorizationParams={{
-          // TODO: change url https://chemtek.services/blog/chemtekkers
           // Allowed callback url on Auth0
-          redirect_uri: "http://localhost:8888/blog/chemtekkers",
+          redirect_uri: "https://chemtek.services/blog/chemtekkers",
         }}
       >
         <Routes>
