@@ -25,8 +25,8 @@ const loadSequelize = async () => {
       max: 2,
       min: 0,
       idle: 0,
-      acquire: 3000,
-      evict: 7200,
+      acquire: 30000,
+      evict: 72000,
     },
   });
 
