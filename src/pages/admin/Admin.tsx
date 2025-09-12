@@ -46,7 +46,8 @@ const Blog = ({ postId, title, body }: BlogProps) => {
       const response = await fetch("/.netlify/functions/deleteBlog", {
         method: "DELETE",
         headers: {
-          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "DELETE",
         },
         body: JSON.stringify(postId),
       });
@@ -60,6 +61,10 @@ const Blog = ({ postId, title, body }: BlogProps) => {
             "/.netlify/functions/postBuildHook",
             {
               method: "POST",
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "POST",
+              },
             }
           );
 
@@ -118,15 +123,23 @@ const Blog = ({ postId, title, body }: BlogProps) => {
             <h2 className="lg:text-2xl text-balance">{title}</h2>
 
             {/* Close button */}
-            <button className="gradient-border ml-auto cursor-pointer" onClick={handleClose}>
-              <div className="bg-night gradient-border-content w-full h-full">CLOSE</div>
+            <button
+              className="gradient-border ml-auto cursor-pointer"
+              onClick={handleClose}
+            >
+              <div className="bg-night gradient-border-content w-full h-full">
+                CLOSE
+              </div>
             </button>
           </div>
 
           {/* Blog body */}
           <p className="lg:text-lg paragraph-shade">{body}</p>
 
-          <button className="primary-button cursor-pointer" onClick={handleDelete}>
+          <button
+            className="primary-button cursor-pointer"
+            onClick={handleDelete}
+          >
             DELETE
           </button>
         </div>
@@ -184,6 +197,9 @@ const NewPostPopup = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Methods": "POST",
         },
         body: JSON.stringify(submission),
       });
@@ -197,6 +213,10 @@ const NewPostPopup = () => {
             "/.netlify/functions/postBuildHook",
             {
               method: "POST",
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "POST",
+              },
             }
           );
 

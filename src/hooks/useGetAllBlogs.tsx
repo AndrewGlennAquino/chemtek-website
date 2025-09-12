@@ -30,6 +30,8 @@ export const useGetAllBlogs = (): BlogObject[] => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET",
           },
         });
 
