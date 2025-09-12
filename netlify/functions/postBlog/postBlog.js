@@ -76,6 +76,11 @@ export const handler = async (req, context) => {
 
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST"
+      },
       body: JSON.stringify({ message: "Successful POST" }),
     };
   } catch (err) {
@@ -83,6 +88,11 @@ export const handler = async (req, context) => {
 
     return {
       statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST"
+      },
       body: JSON.stringify({ message: err }),
     };
   }
