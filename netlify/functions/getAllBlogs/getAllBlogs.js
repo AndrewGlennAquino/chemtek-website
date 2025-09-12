@@ -24,6 +24,10 @@ export const handler = async (req, context) => {
     logging: false,
   });
 
+  // Test authenticate
+  const authenticate = await sequelize.authenticate();
+  console.log(authenticate);
+
   /**
    * Define blog_posts sequelize model as a table in
    * blog_schema.blog_posts. All CRUD operations operate
@@ -77,6 +81,8 @@ export const handler = async (req, context) => {
       body: JSON.stringify(allBlogs),
     };
   } catch (err) {
+    console.log(err);
+
     sequelize.close();
 
     return {
