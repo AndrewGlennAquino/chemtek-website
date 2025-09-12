@@ -1,3 +1,4 @@
+require("pg");
 const { Sequelize, DataTypes } = require("sequelize");
 
 /**
@@ -23,10 +24,6 @@ export const handler = async (req, context) => {
     protocol: "postgres",
     logging: false,
   });
-
-  // Test authenticate
-  const authenticate = await sequelize.authenticate();
-  console.log(authenticate);
 
   /**
    * Define blog_posts sequelize model as a table in
