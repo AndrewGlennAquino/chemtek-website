@@ -1,4 +1,4 @@
-require("pg");
+const pg = require("pg");
 const { Sequelize, DataTypes } = require("sequelize");
 
 /**
@@ -15,6 +15,7 @@ export const handler = async (req, context) => {
   const sequelize = new Sequelize(process.env.DB_URL, {
     schema: "blog_schema",
     dialect: "postgres",
+    dialectModule: pg,
     dialectOptions: {
       ssl: {
         require: true,
