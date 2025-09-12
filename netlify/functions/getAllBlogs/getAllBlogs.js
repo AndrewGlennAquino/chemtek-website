@@ -1,20 +1,15 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 /**
- * Handle HTTP POST request to this endpoint.
- * Pull title and body from request body, then
- * make POST request to Render PostgreSQL server.
+ * Handle HTTP GET request to this endpoint.
+ * Make GET request to Render PostgreSQL server.
  *
  * @param {*} req http request to this endpoint
  * @param {*} context http request metadata
- * @returns 200 status code and message on success
- * @returns 500 status code and message on failure
+ * @returns 200 status code and allBlogs JSON on success
+ * @returns 500 status code and error message on failure
  */
 export const handler = async (req, context) => {
-  // Parse request body then destructure
-  const data = JSON.parse(req.body);
-  const { postTitle, postBody } = data;
-
   // Create new sequelize object that connects to database url with options
   const sequelize = new Sequelize(process.env.DB_URL, {
     schema: "blog_schema",
@@ -59,24 +54,27 @@ export const handler = async (req, context) => {
   );
 
   /**
-   * Try to sync model to database. On successful sync,
-   * create blog post, close connection, then return success code and message.
-   * On error, close connection then return server error code and error message.
+   * Try to sync model to database. On successful sync, get all blog posts,
+   * then return successful code and JSON of all blogs. On error, close
+   * connection then return server error code and error message.
    */
   try {
     // Connect to table within database
     await blog_posts.sync();
 
-    // Insert into blog_posts title and body values, then close connection
-    await blog_posts.create({
-      post_title: postTitle,
-      post_body: postBody,
+    /**
+     * Get all blogs from blog_schema.blog_posts
+     * in descending order (newest to latest), 
+     * then close connection.
+     */
+    const allBlogs = await blog_posts.findAll({
+      order: [["created_at", "DESC"]],
     });
     sequelize.close();
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Successful POST" }),
+      body: JSON.stringify(allBlogs),
     };
   } catch (err) {
     sequelize.close();

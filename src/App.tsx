@@ -7,25 +7,39 @@ import ChemicalProgram from "./pages/chemical-program/ChemicalProgram";
 import PageNotFound from "./pages/page-not-found/PageNotFound";
 import { Routes, Route } from "react-router";
 import Admin from "./pages/admin/Admin";
+import { Blogs } from "./pages/blogs/Blogs";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const App = () => {
   return (
     <>
       <Header />
-      <Routes>
-        {/* Landing page */}
-        <Route path="/" element={<Home />} />
+      <Auth0Provider
+        domain="dev-g473uzff0iy3v1fo.us.auth0.com"
+        clientId="TtvIjcf7sTRgc1V1kHXcuAsL3y8qkkah"
+        authorizationParams={{
+          // Allowed callback url on Auth0
+          redirect_uri: "https://chemtek.services/blog/chemtekkers",
+        }}
+      >
+        <Routes>
+          {/* Landing page */}
+          <Route path="/" element={<Home />} />
 
-        {/* Admin page */}
-        <Route path="/admin" element={<Admin />} />
+          {/* Blogs page */}
+          <Route path="/blog" element={<Blogs />} />
 
-        {/* Promotional pages */}
-        <Route path="/firsttimecleaning" element={<FirstTimeCleaning />} />
-        <Route path="/chemicalprogram" element={<ChemicalProgram />} />
+          {/* Admin page with obscure endpoint to deter bots*/}
+          <Route path="/blog/chemtekkers" element={<Admin />} />
 
-        {/* Page not found for 404 */}
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+          {/* Promotional pages */}
+          <Route path="/firsttimecleaning" element={<FirstTimeCleaning />} />
+          <Route path="/chemicalprogram" element={<ChemicalProgram />} />
+
+          {/* Page not found for 404 */}
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Auth0Provider>
       <Contact />
       <Footer />
     </>
