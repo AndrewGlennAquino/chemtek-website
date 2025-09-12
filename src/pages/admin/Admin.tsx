@@ -6,23 +6,131 @@ import { motion } from "motion/react";
 
 // Prop types for blogs
 interface BlogProps {
+  postId: number;
   title: string;
   body: string;
 }
 
 /**
  * Blog object that creates a blog card
- * TODO: add functionality to read more button
- * @param props title, body
+ * @param props postId, title, body
  */
-const Blog = ({ title, body }: BlogProps) => {
+const Blog = ({ postId, title, body }: BlogProps) => {
+  // Hold in state if read more was clicked
+  const [readMore, setReadMore] = useState(false);
+
+  // Function that expands a popup window to read enitre body
+  const handleReadMore = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setReadMore(true);
+  };
+
+  // Function that closes popup window
+  const handleClose = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    if (e) {
+      e.preventDefault();
+    }
+
+    setReadMore(false);
+  };
+
+  /**
+   * Handle DELETE request for deleting an existing blog.
+   * Stringify postId, then send DELETE request to deleteBlog
+   * Netlify function. On successful response, trigger website rebuild.
+   */
+  const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("/.netlify/functions/deleteBlog", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postId),
+      });
+
+      if (response.ok) {
+        handleClose();
+
+        // Try POST request to build hook to trigger rebuild
+        try {
+          const buildResponse = await fetch(
+            "/.netlify/functions/postBuildHook",
+            {
+              method: "POST",
+            }
+          );
+
+          if (buildResponse.ok) {
+            console.log(buildResponse.body);
+          } else {
+            console.log(buildResponse.body);
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    } catch (err) {
+      console.error("Unsuccessful DELETE request", err);
+    }
+  };
+
+  /**
+   * On popup open, prevent background scrolling.
+   * On close, allow for background scrolling.
+   * Cleanup after unmount.
+   */
+  useEffect(() => {
+    if (readMore) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [readMore]);
+
   return (
     <div className="card-shadow p-4 rounded-md flex flex-col gap-2">
-      <h2>{title}</h2>
-      <p className="paragraph-shade">{body}</p>
-      <button className="gradient-border mr-auto cursor-pointer">
+      <h2 className="text-balance">{title}</h2>
+      <button
+        className="gradient-border mr-auto cursor-pointer"
+        onClick={handleReadMore}
+      >
         <div className="bg-night gradient-border-content">Read more</div>
       </button>
+
+      {/* Read more popup window */}
+      <div
+        className={`${
+          readMore ? `block` : `hidden`
+        } bg-night/95 w-full h-full max-h-screen absolute inset-0`}
+      >
+        {/* Read more content container */}
+        <div className="bg-night max-w-256 mp-default pt-24 w-full h-full flex flex-col gap-4 overflow-y-auto">
+          {/* Blog title and close button container */}
+          <div className="flex justify-between items-center gap-2">
+            {/* Blog title */}
+            <h2 className="lg:text-2xl text-balance">{title}</h2>
+
+            {/* Close button */}
+            <button className="gradient-border ml-auto cursor-pointer" onClick={handleClose}>
+              <div className="bg-night gradient-border-content w-full h-full">CLOSE</div>
+            </button>
+          </div>
+
+          {/* Blog body */}
+          <p className="lg:text-lg paragraph-shade">{body}</p>
+
+          <button className="primary-button cursor-pointer" onClick={handleDelete}>
+            DELETE
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -218,21 +326,13 @@ const Admin = () => {
                 Add Blog Post +
               </button>
 
-              {/* Remove blog post button */}
-              {/* TODO: add functionality to remove posts */}
-              <button className="gradient-border cursor-pointer">
-                <div className="bg-night gradient-border-content text-sm w-full h-full ">
-                  Delete Blog Post -
-                </div>
-              </button>
-
               {/* Logout button */}
               <motion.button
                 className="gradient-border cursor-pointer"
                 onClick={() =>
-                  logout({ 
+                  logout({
                     // Allowed logout url on Auth0
-                    logoutParams: { returnTo: window.location.origin } 
+                    logoutParams: { returnTo: window.location.origin },
                   })
                 }
                 whileHover="animateHover"
@@ -259,6 +359,7 @@ const Admin = () => {
               {allBlogs.map((blog) => (
                 <Blog
                   key={blog.post_id}
+                  postId={blog.post_id}
                   title={blog.post_title}
                   body={blog.post_body}
                 />
