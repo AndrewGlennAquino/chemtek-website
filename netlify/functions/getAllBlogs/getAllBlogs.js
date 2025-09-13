@@ -22,10 +22,10 @@ const loadSequelize = async () => {
     protocol: "postgres",
     logging: false,
     pool: {
-      max: 2,
+      max: 10,
       min: 0,
-      idle: 0,
-      acquire: 30000,
+      idle: 36000,
+      acquire: 36000,
       evict: 72000,
     },
   });
