@@ -9,8 +9,11 @@ let sequelize = null;
  * @returns sequelize object
  */
 const loadSequelize = async () => {
-  const sequelize = new Sequelize(process.env.DB_URL, {
-    schema: "blog_schema",
+  const sequelize = new Sequelize(process.env.DB_URI, {
+    port: process.env.PORT,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB,
     dialect: "postgres",
     dialectModule: pg,
     dialectOptions: {
@@ -20,17 +23,23 @@ const loadSequelize = async () => {
       },
     },
     protocol: "postgres",
-    logging: false,
+    schema: process.env.DB_SCHEMA,
     pool: {
-      max: 10,
+      max: 5,
       min: 0,
-      idle: 36000,
+      idle: 0,
       acquire: 36000,
-      evict: 72000,
+      evict: 36000,
     },
   });
 
-  await sequelize.authenticate();
+  try {
+    await sequelize.authenticate();
+    console.log("Successful authentication")
+  } catch (err) {
+    console.error("There was a problem with authentication", err);
+  }
+  
 
   return sequelize;
 };
