@@ -10,6 +10,7 @@ let sequelize = null;
  */
 const loadSequelize = async () => {
   const sequelize = new Sequelize(process.env.DB_URI, {
+    host: process.env.DB_HOST,
     port: process.env.PORT,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -21,7 +22,9 @@ const loadSequelize = async () => {
         require: true,
         rejectUnauthorized: false,
       },
+      keepAlive: true,
     },
+    ssl: true,
     protocol: "postgres",
     schema: process.env.DB_SCHEMA,
     pool: {
