@@ -1,6 +1,51 @@
 const pg = require("pg");
 const { Sequelize, DataTypes } = require("sequelize");
 
+// Re-use sequelize instance across invocations
+let sequelize = null;
+
+/**
+ * Get connection to server with options and return sequlize object.
+ * @returns sequelize object
+ */
+const loadSequelize = async () => {
+  const sequelize = new Sequelize(process.env.DB_URI, {
+    host: process.env.DB_HOST,
+    port: process.env.PORT,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB,
+    dialect: "postgres",
+    dialectModule: pg,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+      keepAlive: true,
+    },
+    ssl: true,
+    protocol: "postgres",
+    schema: process.env.DB_SCHEMA,
+    pool: {
+      max: 5,
+      min: 0,
+      idle: 0,
+      acquire: 36000,
+      evict: 36000,
+    },
+  });
+
+  try {
+    await sequelize.authenticate();
+    console.log("Successful authentication");
+  } catch (err) {
+    console.error("There was a problem with authentication", err);
+  }
+
+  return sequelize;
+};
+
 /**
  * Handle HTTP DELETE request to this endpoint.
  * Pull postId from request body, then
@@ -12,24 +57,22 @@ const { Sequelize, DataTypes } = require("sequelize");
  * @returns 500 status code and message on failure
  */
 export const handler = async (req, context) => {
+  // Reuse sequelize instance across invocations to imporve performance
+  if (!sequelize) {
+    sequelize = await loadSequelize();
+  } else {
+    // restart connection pool to ensure connections are not re-used across invocations
+    sequelize.connectionManager.initPools();
+
+    // restore "getConnection()" if it has been overwritten by "close()"
+    if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
+      delete sequelize.connectionManager.getConnection;
+    }
+  }
+
   // Parse request body then destructure
   const data = JSON.parse(req.body);
   const postId = data;
-
-  // Create new sequelize object that connects to database url with options
-  const sequelize = new Sequelize(process.env.DB_URL, {
-    schema: "blog_schema",
-    dialect: "postgres",
-    dialectModule: pg,
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
-    protocol: "postgres",
-    logging: false,
-  });
 
   /**
    * Define blog_posts sequelize model as a table in
@@ -75,18 +118,17 @@ export const handler = async (req, context) => {
         post_id: postId,
       },
     });
-    sequelize.close();
 
     return {
       statusCode: 200,
       body: JSON.stringify({ message: "Successful DELETE" }),
     };
   } catch (err) {
-    sequelize.close();
-
     return {
       statusCode: 500,
       body: JSON.stringify({ message: err }),
     };
+  } finally {
+    await sequelize.connectionManager.close();
   }
 };
