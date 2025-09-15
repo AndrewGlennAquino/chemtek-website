@@ -42,7 +42,6 @@ const loadSequelize = async () => {
   } catch (err) {
     console.error("There was a problem with authentication", err);
   }
-  
 
   return sequelize;
 };
