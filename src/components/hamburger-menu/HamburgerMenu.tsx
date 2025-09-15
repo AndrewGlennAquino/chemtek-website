@@ -8,6 +8,7 @@ import {
   type Variants,
   MotionConfig,
 } from "motion/react";
+import { Link } from "react-router";
 
 interface DropdownMenuProps {
   onClick: () => void;
@@ -29,7 +30,7 @@ const DropdownMenu = ({ onClick }: DropdownMenuProps) => {
   useEffect(() => {
     if (isPresent) {
       const openSequence = async () => {
-        await animate(scope.current, { height: 160 }, { duration: 0.2 });
+        await animate(scope.current, { height: 304 }, { duration: 0.2 });
         await animate(
           "div",
           { y: 0, opacity: 1 },
@@ -69,13 +70,43 @@ const DropdownMenu = ({ onClick }: DropdownMenuProps) => {
     <MotionConfig reducedMotion="user">
       <motion.div
         aria-label="Dropdown menu"
-        className="xl:hidden bg-night/50 backdrop-blur-md w-screen absolute top-16 left-0 right-0"
+        className="xl:hidden bg-night w-screen absolute top-16 left-0 right-0"
         initial="dropdownInitial"
         variants={variants}
         ref={scope}
       >
         {/* Dropdown menu container with default margin and padding */}
         <div className="container mp-default py-4 flex flex-col justify-evenly gap-8">
+          <Link
+            to="/"
+            onClick={onClick}
+          >
+            <motion.div
+              className="gradient-border flex relative"
+              initial="linkInitial"
+              variants={variants}
+            >
+              <div className="bg-night text-lg font-bold w-full gradient-border-content">
+                Home
+              </div>
+            </motion.div>
+          </Link>
+
+          <Link
+            to="/blog"
+            onClick={onClick}
+          >
+            <motion.div
+              className="gradient-border flex relative"
+              initial="linkInitial"
+              variants={variants}
+            >
+              <div className="bg-night text-lg font-bold w-full gradient-border-content">
+                Blog
+              </div>
+            </motion.div>
+          </Link>
+
           <a
             href="https://financing.approvepayments.com/chemtek"
             target="_blank"
