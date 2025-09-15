@@ -29,6 +29,22 @@ const Header = () => {
 
           {/* Links container for device width 1280px and greater */}
           <div className="hidden xl:flex justify-center items-center gap-8">
+            <Link to="/blog">
+              <motion.div className="gradient-border" whileHover="animateHover">
+                <motion.div
+                  className="bg-night text-lg font-bold gradient-border-content"
+                  variants={{
+                    animateHover: {
+                      backgroundColor: "rgba(0, 0, 0, 0)",
+                      color: "var(--color-night)",
+                    },
+                  }}
+                >
+                  Blog
+                </motion.div>
+              </motion.div>
+            </Link>
+
             <motion.a
               href="https://financing.approvepayments.com/chemtek"
               target="_blank"
