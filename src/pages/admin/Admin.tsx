@@ -156,12 +156,13 @@ const Blog = ({ postId, title, postDate, body }: BlogProps) => {
           {/* Blog body */}
           <p className="lg:text-lg paragraph-shade">{body}</p>
 
-          <button
+          <motion.button
             className="primary-button cursor-pointer"
             onClick={handleDelete}
+            whileHover={{ scale: 1.1 }}
           >
             DELETE
-          </button>
+          </motion.button>
         </div>
       </div>
     </div>
@@ -352,12 +353,13 @@ const Admin = () => {
             {/* Button container */}
             <div className="flex gap-4">
               {/* Add new blog post button that opens popup */}
-              <button
+              <motion.button
                 className="primary-button text-sm cursor-pointer"
                 onClick={() => setIsOpen(true)}
+                whileHover={{ scale: 1.1 }}
               >
                 Add Blog Post +
-              </button>
+              </motion.button>
 
               {/* Logout button */}
               <motion.button
