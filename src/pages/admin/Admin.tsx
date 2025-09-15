@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 interface BlogProps {
   postId: number;
   title: string;
+  postDate: string;
   body: string;
 }
 
@@ -15,7 +16,7 @@ interface BlogProps {
  * Blog object that creates a blog card
  * @param props postId, title, body
  */
-const Blog = ({ postId, title, body }: BlogProps) => {
+const Blog = ({ postId, title, postDate, body }: BlogProps) => {
   // Hold in state if read more was clicked
   const [readMore, setReadMore] = useState(false);
 
@@ -92,14 +93,31 @@ const Blog = ({ postId, title, body }: BlogProps) => {
   }, [readMore]);
 
   return (
-    <div className="card-shadow p-4 rounded-md flex flex-col gap-2">
-      <h2 className="text-balance">{title}</h2>
-      <button
+    <div className="card-shadow p-4 rounded-md flex flex-col gap-4">
+      {/* Title and date container */}
+      <div>
+        <h2 className="text-balance">{title}</h2>
+        <h3 className="text-smoke/50">{postDate}</h3>
+      </div>
+
+      <motion.button
         className="gradient-border mr-auto cursor-pointer"
         onClick={handleReadMore}
+        whileHover="animateHover"
       >
-        <div className="bg-night gradient-border-content">Read more</div>
-      </button>
+        <motion.div
+          className="bg-night gradient-border-content"
+          whileHover="animateHover"
+          variants={{
+            animateHover: {
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              color: "var(--color-night)",
+            },
+          }}
+        >
+          Read more
+        </motion.div>
+      </motion.button>
 
       {/* Read more popup window */}
       <div
@@ -115,14 +133,24 @@ const Blog = ({ postId, title, body }: BlogProps) => {
             <h2 className="lg:text-2xl text-balance">{title}</h2>
 
             {/* Close button */}
-            <button
+            <motion.button
               className="gradient-border ml-auto cursor-pointer"
               onClick={handleClose}
+              whileHover="animateHover"
             >
-              <div className="bg-night gradient-border-content w-full h-full">
+              <motion.div
+                className="bg-night gradient-border-content w-full h-full"
+                whileHover="animateHover"
+                variants={{
+                  animateHover: {
+                    backgroundColor: "rgba(0, 0, 0, 0)",
+                    color: "var(--color-night)",
+                  },
+                }}
+              >
                 CLOSE
-              </div>
-            </button>
+              </motion.div>
+            </motion.button>
           </div>
 
           {/* Blog body */}
@@ -361,14 +389,23 @@ const Admin = () => {
             {/* Blogs container */}
             <div className="grid md:grid-cols-2 gap-4">
               {/* Create a new blog card for each blog from server */}
-              {allBlogs.map((blog) => (
-                <Blog
-                  key={blog.post_id}
-                  postId={blog.post_id}
-                  title={blog.post_title}
-                  body={blog.post_body}
-                />
-              ))}
+              {allBlogs.map((blog) => {
+                // Create new date object with data and parse into variables
+                const date = new Date(blog.created_at);
+                const day = date.getDate();
+                const month = date.getMonth();
+                const year = date.getFullYear();
+
+                return (
+                  <Blog
+                    key={blog.post_id}
+                    postId={blog.post_id}
+                    title={blog.post_title}
+                    postDate={`${month}/${day}/${year}`}
+                    body={blog.post_body}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
