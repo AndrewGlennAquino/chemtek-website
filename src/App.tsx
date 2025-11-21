@@ -1,14 +1,19 @@
+// Library imports
+import { Routes, Route } from "react-router";
+import { Auth0Provider } from "@auth0/auth0-react";
+
+// Component imports
 import Header from "./components/header/Header";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
-import Home from "./pages/home/Home";
+
+// Page imports
+import Home from "./pages/Home";
 import FirstTimeCleaning from "./pages/first-time-cleaning/FirstTimeCleaning";
 import ChemicalProgram from "./pages/chemical-program/ChemicalProgram";
 import PageNotFound from "./pages/page-not-found/PageNotFound";
-import { Routes, Route } from "react-router";
 import Admin from "./pages/admin/Admin";
 import { Blogs } from "./pages/blogs/Blogs";
-import { Auth0Provider } from "@auth0/auth0-react";
 
 const App = () => {
   return (

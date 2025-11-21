@@ -101,11 +101,6 @@ body {
     @apply bg-linear-to-r from-chemtek to-aqua bg-clip-text text-transparent;
   }
 
-  /* Style for subheader text for sections */
-  .subheader-shade {
-    @apply text-smoke/25 text-lg font-semibold;
-  }
-
   /* Style for paragraph text shade */
   .paragraph-shade {
     @apply text-smoke/50;
