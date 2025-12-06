@@ -45,6 +45,11 @@ body {
     @apply bg-smoke w-8 h-1 rounded-md;
   }
 
+  /* Style for dropdown menu links */
+  .dropdown-link {
+    @apply font-semibold;
+  }
+
   /* Style for header shadow */
   .header-shadow {
     box-shadow: 0 2px 8px var(--color-night-shade);
