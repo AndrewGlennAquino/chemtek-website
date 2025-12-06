@@ -8,12 +8,12 @@ import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 
 // Page imports
-import Home from "./pages/Home";
-import FirstTimeCleaning from "./pages/first-time-cleaning/FirstTimeCleaning";
-import ChemicalProgram from "./pages/chemical-program/ChemicalProgram";
-import PageNotFound from "./pages/page-not-found/PageNotFound";
-import Admin from "./pages/admin/Admin";
-import { Blogs } from "./pages/blogs/Blogs";
+import { Home } from "./pages/Home";
+import { FirstTimeCleaning } from "./pages/FirstTimeCleaning";
+import { ChemicalProgram } from "./pages/ChemicalProgram";
+import { PageNotFound } from "./pages/PageNotFound";
+import { Admin } from "./pages/Admin";
+import { Blogs } from "./pages/Blogs";
 
 const App = () => {
   return (

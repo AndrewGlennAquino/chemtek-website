@@ -1,9 +1,9 @@
-import dishwasherImage from "../../assets/images/dishwasher-image.png";
+import dishwasherImage from "../assets/images/dishwasher-image.png";
 
 /**
  * Page that can only be accessed via a promotional QR code
  */
-const ChemicalProgram = () => {
+export const ChemicalProgram = () => {
   return (
     <main>
       {/* Chemical program container */}
@@ -87,5 +87,3 @@ const ChemicalProgram = () => {
     </main>
   );
 };
-
-export default ChemicalProgram;

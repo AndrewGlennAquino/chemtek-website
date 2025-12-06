@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useGetAllBlogs } from "../../hooks/useGetAllBlogs";
+import { useGetAllBlogs } from "../hooks/useGetAllBlogs";
 import { motion } from "motion/react";
 
 // Prop types for blogs

@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
-import { NewBlogPopupContext } from "../../contexts/NewBlogPopupContext";
-import { useGetAllBlogs } from "../../hooks/useGetAllBlogs";
+import { NewBlogPopupContext } from "../contexts/NewBlogPopupContext";
+import { useGetAllBlogs } from "../hooks/useGetAllBlogs";
 import { useAuth0 } from "@auth0/auth0-react";
 import { motion } from "motion/react";
 
@@ -330,7 +330,7 @@ const NewPostPopup = () => {
 /**
  * Admin page that allows the admin to add or remove blog posts
  */
-const Admin = () => {
+export const Admin = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   // Hold in state if the popup is open or closed
@@ -460,5 +460,3 @@ const Admin = () => {
     </main>
   );
 };
-
-export default Admin;

@@ -1,9 +1,9 @@
-import iceMachine from "../../assets/images/first-time-cleaning-image.webp";
+import iceMachine from "../assets/images/first-time-cleaning-image.webp";
 
 /**
  * Page that can only be accessed via a promotional QR code
  */
-const FirstTimeCleaning = () => {
+export const FirstTimeCleaning = () => {
   return (
     <main>
       {/* First time cleaning container */}
@@ -94,5 +94,3 @@ const FirstTimeCleaning = () => {
     </main>
   );
 };
-
-export default FirstTimeCleaning;

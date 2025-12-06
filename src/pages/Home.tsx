@@ -23,7 +23,7 @@ import { AreaCard } from "../components/AreaCard";
 /**
  * Home page component
  */
-const Home = () => {
+export const Home = () => {
   // Parent variants to stagger children animation
   const staggerVariants: Variants = {
     animateFadeIn: {
@@ -53,7 +53,7 @@ const Home = () => {
     <main>
       {/* Hero section */}
       <section
-        id="hero-section"
+        id="hero"
         aria-label="Hero"
         className="h-screen max-h-192 relative"
       >
@@ -104,10 +104,10 @@ const Home = () => {
       </section>
 
       {/* What we do section */}
-      <section aria-label="What we do">
+      <section id="what-we-do" aria-label="What we do">
         {/* What we do container */}
         <div className="container mp-default flex flex-col gap-8">
-          {/* What we do Header */}
+          {/* What we do header */}
           <h1 className="">What We Do</h1>
 
           {/* Card container */}
@@ -137,7 +137,7 @@ const Home = () => {
       </section>
 
       {/* Why choose us section */}
-      <section aria-label="Why choose us">
+      <section id="why-choose-us" aria-label="Why choose us">
         {/* Why choose us container spacing */}
         <div className="container mp-default">
           {/* Why choose us container with y border */}
@@ -197,7 +197,7 @@ const Home = () => {
       </section>
 
       {/* Service area section */}
-      <section aria-label="Service Area" className="relative">
+      <section id="service-area" aria-label="Service area" className="relative">
         {/* Service area container */}
         <div className="container mp-default pt-0 flex flex-col gap-8">
           {/* Service area header */}
@@ -238,7 +238,11 @@ const Home = () => {
       </section>
 
       {/* Equipment section */}
-      <section aria-label="Equipment lease and fianance" className="bg-linear-to-b from-transparent from-50% to-aqua/50 relative">
+      <section
+        id="equipment-fianance"
+        aria-label="Equipment lease and fianance"
+        className="bg-linear-to-b from-transparent from-50% to-aqua/50 relative"
+      >
         {/* Equipment container */}
         <div className="container mp-default flex flex-col gap-8">
           {/* Equipment header */}
@@ -246,9 +250,7 @@ const Home = () => {
 
           {/* Equpment text container */}
           <div className="card-shadow rounded-lg p-4 flex flex-col gap-2">
-            <h2>
-              Powering Your Business with Reliability and Efficiency
-            </h2>
+            <h2>Powering Your Business with Reliability and Efficiency</h2>
 
             <p className="paragraph-shade">
               Our products are built with precision engineering to deliver
@@ -289,5 +291,3 @@ const Home = () => {
     </main>
   );
 };
-
-export default Home;
