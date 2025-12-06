@@ -38,8 +38,8 @@ const App = () => {
           <Route path="/blog/chemtekkers" element={<Admin />} />
 
           {/* Promotional pages */}
-          <Route path="/firsttimecleaning" element={<FirstTimeCleaning />} />
-          <Route path="/chemicalprogram" element={<ChemicalProgram />} />
+          <Route path="/first-time-cleaning" element={<FirstTimeCleaning />} />
+          <Route path="/chemical-program" element={<ChemicalProgram />} />
 
           {/* Page not found for 404 */}
           <Route path="*" element={<PageNotFound />} />
