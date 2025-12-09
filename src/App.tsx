@@ -9,11 +9,10 @@ import { Footer } from "./components/Footer";
 
 // Page imports
 import { Home } from "./pages/Home";
-import { FirstTimeCleaning } from "./pages/FirstTimeCleaning";
-import { ChemicalProgram } from "./pages/ChemicalProgram";
-import { PageNotFound } from "./pages/PageNotFound";
 import { Admin } from "./pages/Admin";
 import { Blogs } from "./pages/Blogs";
+import { Promotions } from "./pages/Promotions";
+import { PageNotFound } from "./pages/PageNotFound";
 
 const App = () => {
   return (
@@ -37,9 +36,8 @@ const App = () => {
           {/* Admin page with obscure endpoint to deter bots*/}
           <Route path="/blog/chemtekkers" element={<Admin />} />
 
-          {/* Promotional pages */}
-          <Route path="/first-time-cleaning" element={<FirstTimeCleaning />} />
-          <Route path="/chemical-program" element={<ChemicalProgram />} />
+          {/* Promotions page */}
+          <Route path="/promotions" element={<Promotions />} />
 
           {/* Page not found for 404 */}
           <Route path="*" element={<PageNotFound />} />
