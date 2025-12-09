@@ -5,7 +5,7 @@ import { Link } from "react-router";
 /**
  * Header component that contains logo and responsive nav
  */
-const Header = () => {
+export const Header = () => {
   return (
     <header className="bg-night header-shadow fixed sm:sticky top-0 left-0 right-0 z-50">
       {/* Header container */}
@@ -74,5 +74,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

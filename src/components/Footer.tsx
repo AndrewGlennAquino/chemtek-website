@@ -13,7 +13,7 @@ import youtubeIcon from "../assets/icons/youtube.svg";
 /**
  * Footer component
  */
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="bg-chemtek/50 text-smoke text-sm">
       {/* Footer container */}
@@ -89,5 +89,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

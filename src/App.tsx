@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 // Component imports
-import Header from "./components/Header";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { Header } from "./components/Header";
+import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
 
 // Page imports
 import { Home } from "./pages/Home";
