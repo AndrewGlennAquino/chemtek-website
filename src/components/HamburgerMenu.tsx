@@ -42,13 +42,6 @@ const DropdownMenu = ({
           Equipment Fianance
         </a>
         <a
-          href="/#"
-          onClick={() => setClicked(false)}
-          className="dropdown-link"
-        >
-          Testimonials
-        </a>
-        <a
           href="/#contact"
           onClick={() => setClicked(false)}
           className="primary-button font-bold"
