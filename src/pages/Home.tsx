@@ -1,5 +1,6 @@
 // Library imports
 import { motion, stagger, type Variants } from "motion/react";
+import { Link } from "react-router";
 
 // Video imports
 import heroVideo from "../assets/videos/hero-video.mp4";
@@ -51,6 +52,38 @@ export const Home = () => {
 
   return (
     <main>
+      {/* Promotions section */}
+      <section
+        className="bg-linear-to-br from-chemtek to-aqua w-full py-2 flex justify-center absolute top-16 z-10"
+        aria-label="Promotions"
+      >
+        <div className="text-night text-sm container px-4 lg:px-8 grid grid-cols-2">
+          <motion.div
+            className="text-balance justify-self-start self-center"
+            whileHover="animateArrow"
+          >
+            <Link to="/promotions">
+              View our promotions for first time customers{" "}
+              <motion.div
+                className="inline-block"
+                variants={{ animateArrow: { transform: "translateX(0.5rem)" } }}
+              >
+                →
+              </motion.div>
+            </Link>
+          </motion.div>
+
+          <a
+            href="tel:8472507186"
+            className="cursor-pointer justify-self-end self-center"
+          >
+            Give us a call!
+            <br />
+            <span className="underline">(847) 250-7186</span>
+          </a>
+        </div>
+      </section>
+
       {/* Hero section */}
       <section
         id="hero"
