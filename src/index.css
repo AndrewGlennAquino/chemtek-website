@@ -83,7 +83,7 @@ body {
 
   /* Style for input text input in contact form */
   .contact-form-input {
-    @apply text-smoke border-b-2 border-smoke w-full pl-1 py-1 placeholder:text-smoke/75;
+    @apply text-smoke border-1 border-smoke rounded-md w-full pl-2 py-2 placeholder:text-smoke/75;
   }
 
   /* Social media button */
