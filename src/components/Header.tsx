@@ -49,11 +49,11 @@ export const Header = () => {
             Service Area
           </motion.a>
           <motion.a
-            href="/#equipment-fianance"
+            href="/#equipment-finance"
             className="dropdown-link"
             whileHover={{ scale: 1.1 }}
           >
-            Equipment Fianance
+            Equipment Finance
           </motion.a>
           <motion.span className="dropdown-link" whileHover={{ scale: 1.1 }}>
             <Link to="/blog">Blog</Link>
