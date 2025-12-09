@@ -8,7 +8,10 @@ export const Promotions = () => {
   return (
     <main className="container mp-default flex flex-col gap-16">
       {/* First time cleaning container */}
-      <section aria-label="First time ice machine cleaning special" className="pt-16 sm:pt-0 flex flex-col gap-8">
+      <section
+        aria-label="First time ice machine cleaning special"
+        className="pt-16 sm:pt-0 flex flex-col gap-8"
+      >
         {/* First time cleaning header */}
         <h1 className="text-balance">
           First Time Ice Machine Cleaning Special
@@ -26,7 +29,7 @@ export const Promotions = () => {
             {/* Sticker overlay */}
             <div className="bg-radial from-chemtek to-aqua text-night font-bold w-32 h-32 rounded-full flex justify-center items-center absolute top-0 right-0">
               <p className="text-xl">
-                Only $80
+                $100 off
                 <span className="text-xs relative bottom-1">*</span>
               </p>
             </div>
@@ -91,7 +94,10 @@ export const Promotions = () => {
       </section>
 
       {/* Chemical program container */}
-      <section aria-label="First time ice machine cleaning special" className="flex flex-col gap-8">
+      <section
+        aria-label="First time ice machine cleaning special"
+        className="flex flex-col gap-8"
+      >
         {/* Chemical program header */}
         <h1 className="text-balance">Dish Machine Chemical Program</h1>
 
@@ -130,23 +136,6 @@ export const Promotions = () => {
                 <br />
                 Don't miss out on this chance to enhance the longevity and
                 efficiency of your assets!
-              </p>
-            </div>
-
-            <div>
-              <h2>10% OFF every 5th Chemical Order</h2>
-              <p className="paragraph-shade">
-                Sign up today & enjoy an additoinal customer perk which includes
-                10% off every 5th chemical order.
-                <br />
-                <br />
-                Experience the benefits of our rewards program for every
-                purchase you make*
-                <br />
-                <br />
-                <span className="text-xs">
-                  *Offer subject to change - terms and conditions may apply
-                </span>
               </p>
             </div>
 

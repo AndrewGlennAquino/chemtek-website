@@ -272,14 +272,14 @@ export const Home = () => {
 
       {/* Equipment section */}
       <section
-        id="equipment-fianance"
-        aria-label="Equipment lease and fianance"
+        id="equipment-finance"
+        aria-label="Equipment lease and finance"
         className="bg-linear-to-b from-transparent from-50% to-aqua/50 relative"
       >
         {/* Equipment container */}
         <div className="container mp-default flex flex-col gap-8">
           {/* Equipment header */}
-          <h1 className="text-balance">Equipment Fianance</h1>
+          <h1 className="text-balance">Equipment Finance</h1>
 
           {/* Equpment text container */}
           <div className="card-shadow rounded-lg p-4 flex flex-col gap-2">
@@ -314,7 +314,7 @@ export const Home = () => {
                     },
                   }}
                 >
-                  Fianance Our Equipment →
+                  Finance Our Equipment →
                 </motion.div>
               </div>
             </motion.a>
