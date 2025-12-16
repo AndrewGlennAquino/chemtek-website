@@ -346,7 +346,7 @@ export const Admin = () => {
         {/* Admin page container */}
         <div className="container mp-default flex flex-col gap-8">
           {/* Admin page header */}
-          <h1 className="pt-16 sm:pt-0">Admin</h1>
+          <h1 className="pt-36 sm:pt-8">Admin</h1>
 
           {/* Button and blogs container */}
           <div className="flex flex-col gap-4">
@@ -419,7 +419,7 @@ export const Admin = () => {
   ) : (
     <main>
       {/* Login/Logout button container */}
-      <div className="container mp-default pt-24 md:pt-8">
+      <div className="container mp-default pt-36 sm:pt-8">
         {/* Button flexbox */}
         <div className="flex gap-2">
           {/* Login button */}
