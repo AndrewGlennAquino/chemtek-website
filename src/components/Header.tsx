@@ -12,14 +12,15 @@ export const Header = () => {
       <div className="container w-full h-16 mp-default py-4 flex justify-between items-center overflow-hidden">
         {/* Header logo */}
         <Link to="/">
-          <motion.div
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="logo relative flex justify-center items-center"
             whileHover={{ scale: 1.1 }}
           >
             {/* Background glow */}
             <div className="bg-aqua/20 blur-md w-32 h-32 absolute -z-10 rounded-full" />
             <span>CHEMTEK</span>
-          </motion.div>
+          </motion.button>
         </Link>
 
         {/* Hamburger menu only appears for device width less than 1280px */}
@@ -74,6 +75,39 @@ export const Header = () => {
           </motion.a>
         </nav>
       </div>
+
+      {/* Promotions section */}
+      <section
+        className="bg-linear-to-br from-chemtek to-aqua w-full py-2 flex justify-center"
+        aria-label="Promotions"
+      >
+        <div className="text-night text-sm container px-4 lg:px-8 grid grid-cols-2">
+          <motion.div
+            className="text-balance justify-self-start self-center"
+            whileHover="animateArrow"
+            onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
+          >
+            <Link to="/promotions">
+              View our promotions for first time customers{" "}
+              <motion.div
+                className="inline-block"
+                variants={{ animateArrow: { transform: "translateX(0.5rem)" } }}
+              >
+                →
+              </motion.div>
+            </Link>
+          </motion.div>
+
+          <a
+            href="tel:8472507186"
+            className="cursor-pointer justify-self-end self-center"
+          >
+            Give us a call!
+            <br />
+            <span className="underline">(847) 250-7186</span>
+          </a>
+        </div>
+      </section>
     </header>
   );
 };
