@@ -10,11 +10,11 @@ export const Promotions = () => {
       {/* First time cleaning container */}
       <section
         aria-label="First time ice machine cleaning special"
-        className="pt-16 sm:pt-0 flex flex-col gap-8"
+        className="pt-28 sm:pt-8 flex flex-col gap-8"
       >
         {/* First time cleaning header */}
         <h1 className="text-balance">
-          First Time Ice Machine Cleaning Special
+          $100 OFF Ice Machine Cleaning
         </h1>
 
         {/* Image and text container */}
@@ -99,7 +99,7 @@ export const Promotions = () => {
         className="flex flex-col gap-8"
       >
         {/* Chemical program header */}
-        <h1 className="text-balance">Dish Machine Chemical Program</h1>
+        <h1 className="text-balance">FREE Preventative Maintenance on Dish Machines (with purchase of chemicals)</h1>
 
         {/* Image and text container */}
         <div className="flex flex-col lg:flex-row items-center gap-4">
