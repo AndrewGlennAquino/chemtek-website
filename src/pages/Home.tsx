@@ -1,6 +1,5 @@
 // Library imports
 import { motion, stagger, type Variants } from "motion/react";
-import { Link } from "react-router";
 
 // Video imports
 import heroVideo from "../assets/videos/hero-video.mp4";
@@ -9,7 +8,6 @@ import heroVideo from "../assets/videos/hero-video.mp4";
 import cleanImage from "../assets/images/clean.jpg";
 import iceImage from "../assets/images/ice.jpg";
 import washImage from "../assets/images/wash.jpg";
-import whyChooseUs from "../assets/images/why-choose-us.jpg";
 
 // Icon imports
 import zap from "../assets/icons/zap.svg";
@@ -20,6 +18,7 @@ import users from "../assets/icons/users.svg";
 import { ImageCard } from "../components/ImageCard";
 import { IconCard } from "../components/IconCard";
 import { AreaCard } from "../components/AreaCard";
+import { Testimonial } from "../components/Testimonial";
 
 /**
  * Home page component
@@ -52,38 +51,6 @@ export const Home = () => {
 
   return (
     <main>
-      {/* Promotions section */}
-      <section
-        className="bg-linear-to-br from-chemtek to-aqua w-full py-2 flex justify-center absolute top-16 z-10"
-        aria-label="Promotions"
-      >
-        <div className="text-night text-sm container px-4 lg:px-8 grid grid-cols-2">
-          <motion.div
-            className="text-balance justify-self-start self-center"
-            whileHover="animateArrow"
-          >
-            <Link to="/promotions">
-              View our promotions for first time customers{" "}
-              <motion.div
-                className="inline-block"
-                variants={{ animateArrow: { transform: "translateX(0.5rem)" } }}
-              >
-                →
-              </motion.div>
-            </Link>
-          </motion.div>
-
-          <a
-            href="tel:8472507186"
-            className="cursor-pointer justify-self-end self-center"
-          >
-            Give us a call!
-            <br />
-            <span className="underline">(847) 250-7186</span>
-          </a>
-        </div>
-      </section>
-
       {/* Hero section */}
       <section
         id="hero"
@@ -173,58 +140,30 @@ export const Home = () => {
       <section id="why-choose-us" aria-label="Why choose us">
         {/* Why choose us container spacing */}
         <div className="container mp-default">
-          {/* Why choose us container with y border */}
-          <div className="py-8 flex flex-col lg:grid lg:grid-rows-1 lg:grid-cols-2 gap-4 lg:gap-8">
-            {/* Text container */}
-            <div className="flex flex-col justify-center gap-8">
-              {/* Why choose us header */}
-              <h1>Why Choose Us </h1>
+          {/* Why choose us header */}
+          <h1>Why Choose Us </h1>
 
-              {/* Why choose us grid container */}
-              <motion.div
-                className="grid grid-rows-3 grid-cols-1 gap-4 lg:gap-8"
-                initial="initial"
-                whileInView="animateFadeIn"
-                variants={{
-                  animateFadeIn: {
-                    transition: {
-                      delayChildren: stagger(0.1),
-                    },
-                  },
-                }}
-                viewport={{ amount: 0.25, once: true }}
-              >
-                <IconCard
-                  bg="bg-yellow-300"
-                  src={zap}
-                  title="Realiable Products and Services"
-                  desc="Our service and products are designed to be energy efficient and reliable, ensuring that your business runs smoothly and efficiently. We use only the highest quality materials and components in our products."
-                />
+          {/* Why choose us grid container */}
+          <div className="pt-8 grid grid-rows-3 grid-cols-1 gap-4 lg:gap-8">
+            <IconCard
+              bg="bg-yellow-300"
+              src={zap}
+              title="Realiable Products and Services"
+              desc="Our service and products are designed to be energy efficient and reliable, ensuring that your business runs smoothly and efficiently. We use only the highest quality materials and components in our products."
+            />
 
-                <IconCard
-                  bg="bg-blue-300"
-                  src={tool}
-                  title="Installation and Maintenance"
-                  desc="Our team of experienced technicians provides expert installation and maintenance services for all your ice machines and warewashing equipment. We also offer regular maintenance plans to keep your equipment running at peak performance."
-                />
-                <IconCard
-                  bg="bg-orange-300"
-                  src={users}
-                  title="Exceptional Customer Service"
-                  desc="We pride ourselves on providing exceptional customer service. Our team is dedicated to ensuring that our customers are satisfied with our products and services. Contact us today to experience the difference."
-                />
-              </motion.div>
-            </div>
-
-            {/* Image container */}
-            <div className="w-full h-full rounded-lg flex justify-center items-center">
-              <img
-                src={whyChooseUs}
-                alt="Man doing repairs"
-                className="w-full h-full object-cover object-center rounded-lg"
-                loading="lazy"
-              />
-            </div>
+            <IconCard
+              bg="bg-blue-300"
+              src={tool}
+              title="Installation and Maintenance"
+              desc="Our team of experienced technicians provides expert installation and maintenance services for all your ice machines and warewashing equipment. We also offer regular maintenance plans to keep your equipment running at peak performance."
+            />
+            <IconCard
+              bg="bg-orange-300"
+              src={users}
+              title="Exceptional Customer Service"
+              desc="We pride ourselves on providing exceptional customer service. Our team is dedicated to ensuring that our customers are satisfied with our products and services. Contact us today to experience the difference."
+            />
           </div>
         </div>
       </section>
@@ -274,7 +213,7 @@ export const Home = () => {
       <section
         id="equipment-finance"
         aria-label="Equipment lease and finance"
-        className="bg-linear-to-b from-transparent from-50% to-aqua/50 relative"
+        className="relative"
       >
         {/* Equipment container */}
         <div className="container mp-default flex flex-col gap-8">
@@ -291,10 +230,10 @@ export const Home = () => {
               run at peak performance. Every unit is crafted using only the
               highest quality materials and components, ensuring long-lasting
               durability and reduced maintenance costs. We understand that no
-              two businesses are the same. That’s why we offer tailored
+              two businesses are the same. That's why we offer tailored
               fianancing programs designed to fit your specific operational
               needs, helping you save on money and optimize performance. From
-              maintainance to installation, we’re committed to providing
+              maintainance to installation, we're committed to providing
               solutions that work seamlessly for you now and for years to come.
             </p>
 
@@ -317,6 +256,64 @@ export const Home = () => {
                   Finance Our Equipment →
                 </motion.div>
               </div>
+            </motion.a>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials section */}
+      <section
+        aria-label="Testimonials"
+        id="testimonials"
+        className="bg-linear-to-b from-transparent from-50% to-aqua/50"
+      >
+        {/* Testimonials container */}
+        <div className="container mp-default flex flex-col gap-8">
+          {/* Testimonials header */}
+          <h1 className="content-header">Testimonials</h1>
+
+          {/* Testimonial and button */}
+          <div className="bg-night card-shadow p-4 rounded-lg">
+            <Testimonial
+              author="Julio B."
+              company="No Manches Mexican Grill"
+            >
+              <>
+                I rarely write reviews, but I felt compelled to share my
+                experience with ChemTek because{" "}
+                <strong className="text-smoke">
+                  they truly stand out from the crowd
+                </strong>
+                . The quality of their products is consistently excellent, which
+                is so important to me, and their prices are honestly some of the
+                best I've found anywhere.{" "}
+                <strong className="text-smoke">
+                  It's clear they care about both their products and their
+                  customers.
+                </strong>{" "}
+                I also want to give a special shoutout to Vince, the owner. He's
+                one of those rare business owners who genuinely goes above and
+                beyond. He's always friendly, helpful, and willing to take the
+                time to make sure everything is perfect. It's obvious he's
+                passionate about what he does and{" "}
+                <strong className="text-smoke">
+                  truly cares about his customers' satisfaction
+                </strong>
+                . If you're on the fence about choosing ChemTek, I can honestly
+                say you won't be disappointed. Great products, amazing prices,
+                and the kind of customer service that's almost impossible to
+                find these days. Highly recommended!
+              </>
+            </Testimonial>
+
+            {/* View all reviews button */}
+            <motion.a
+              href="https://www.facebook.com/61576714856145/reviews/"
+              target="_blank"
+              className="primary-button w-fit ml-auto mt-8"
+              whileHover={{ scale: 1.1 }}
+            >
+              View All Reviews →
             </motion.a>
           </div>
         </div>

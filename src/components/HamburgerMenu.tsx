@@ -1,6 +1,7 @@
 // Libraries
 import { useState, type Dispatch, type SetStateAction } from "react";
 import { motion } from "motion/react";
+import { Link } from "react-router";
 
 /**
  * Dropdown navigation menu that opens on HamburgerMenu button click
@@ -41,6 +42,24 @@ const DropdownMenu = ({
         >
           Equipment Fianance
         </a>
+        <a
+          href="/#testimonials"
+          onClick={() => setClicked(false)}
+          className="dropdown-link"
+        >
+          Testimonials
+        </a>
+        <Link to="/blog">
+          <span
+            className="dropdown-link"
+            onClick={() => {
+              setClicked(false);
+              window.scrollTo({ top: 0, behavior: "instant" });
+            }}
+          >
+            Blog
+          </span>
+        </Link>
         <a
           href="/#contact"
           onClick={() => setClicked(false)}

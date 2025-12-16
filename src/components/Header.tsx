@@ -55,6 +55,13 @@ export const Header = () => {
           >
             Equipment Finance
           </motion.a>
+          <motion.a
+            href="/#testimonials"
+            className="dropdown-link"
+            whileHover={{ scale: 1.1 }}
+          >
+            Testimonials
+          </motion.a>
           <motion.span className="dropdown-link" whileHover={{ scale: 1.1 }}>
             <Link to="/blog">Blog</Link>
           </motion.span>
