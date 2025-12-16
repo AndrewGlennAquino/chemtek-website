@@ -129,7 +129,7 @@ export const Blogs = () => {
   return (
     <main>
       {/* Blogs containerr */}
-      <div className="container mp-default pt-24 md:pt-8 flex flex-col gap-4">
+      <div className="container mp-default pt-36 sm:pt-8 flex flex-col gap-4">
         {/* Blogs header */}
         <h1>Blog</h1>
 
