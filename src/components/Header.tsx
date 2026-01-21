@@ -14,7 +14,7 @@ export const Header = () => {
         <Link to="/">
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="logo relative flex justify-center items-center"
+            className="logo relative flex justify-center items-center cursor-pointer"
             whileHover={{ scale: 1.1 }}
           >
             {/* Background glow */}
