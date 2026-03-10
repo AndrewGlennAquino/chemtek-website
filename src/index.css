@@ -6,13 +6,9 @@
   src: url(./assets/fonts/Inter.ttf);
 }
 
-html {
-  scrollbar-gutter: stable;
-  @apply scroll-smooth text-smoke font-inter;
-}
-
 body {
-  @apply bg-night bg-[radial-gradient(#70707033_1px,#1e1b22_1px)] bg-[size:20px_20px];
+  background-color: var(--color-smoke);
+  color: var(--color-night);
 }
 
 @theme {
@@ -26,88 +22,9 @@ body {
 }
 
 @layer base {
-  h1 {
-    @apply text-3xl font-bold;
-  }
-  h2 {
-    @apply text-lg font-semibold;
-  }
+  
 }
 
 @layer components {
-  /* Default margin and padding for containers */
-  .mp-default {
-    @apply mx-auto p-4 py-8 lg:px-8;
-  }
 
-  /* Style for hamburger menu bars */
-  .hamburger-menu-bar {
-    @apply bg-smoke w-8 h-1 rounded-md;
-  }
-
-  /* Style for dropdown menu links */
-  .dropdown-link {
-    @apply font-semibold;
-  }
-
-  /* Style for header shadow */
-  .header-shadow {
-    box-shadow: 0 2px 8px var(--color-night-shade);
-  }
-
-  /* Style for hero inset shadow */
-  .hero-shadow {
-    box-shadow: inset 0 0 8px var(--color-night-shade);
-  }
-
-  /* Style for header logo */
-  .logo {
-    @apply bg-linear-to-r from-chemtek to-aqua text-night text-2xl font-bold px-2 rounded-sm;
-  }
-
-  /* Style for button primary style */
-  .primary-button {
-    @apply bg-gradient-to-br from-chemtek to-aqua text-night rounded-lg px-4 py-2 flex justify-center items-center;
-  }
-
-  /* Style for card shadow */
-  .card-shadow {
-    box-shadow: 0 0 8px var(--color-night-shade);
-    @apply bg-night;
-  }
-
-  /* Style for testimonial quotation marks */
-  .testimonial-quote {
-    @apply text-chemtek text-9xl font-bold opacity-25 w-fit h-16;
-  }
-
-  /* Style for input text input in contact form */
-  .contact-form-input {
-    @apply text-smoke border-1 border-smoke rounded-md w-full pl-2 py-2 placeholder:text-smoke/75;
-  }
-
-  /* Social media button */
-  .social-media-link {
-    @apply bg-aqua w-12 h-12 p-3 rounded-full flex justify-center items-center;
-  }
-
-  /* Style for gradient border */
-  .gradient-border {
-    @apply bg-linear-to-r from-chemtek to-aqua p-0.5 rounded-lg;
-  }
-
-  /* Style for gradient border content */
-  .gradient-border-content {
-    @apply py-1.5 px-4 rounded-lg flex justify-center items-center;
-  }
-
-  /* Style for gradient text */
-  .gradient-text {
-    @apply bg-linear-to-r from-chemtek to-aqua bg-clip-text text-transparent;
-  }
-
-  /* Style for paragraph text shade */
-  .paragraph-shade {
-    @apply text-smoke/50;
-  }
 }
