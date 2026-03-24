@@ -31,4 +31,9 @@ body {
     padding: 1rem;
   }
 
+  .hamburger-menu-bar {
+    background-color: var(--color-night);
+    width: 2rem;
+    height: 0.25rem;
+  }
 }
