@@ -27,5 +27,8 @@ body {
 }
 
 @layer components {
+  .p-default {
+    padding: 1rem;
+  }
 
 }
