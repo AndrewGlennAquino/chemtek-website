@@ -10,7 +10,7 @@ export const Home = () => {
       {/* Hero */}
       <section 
         aria-label="Hero" 
-        className="w-screen h-[90vh] relative"
+        className="w-screen h-[90vh] relative -z-10"
       >
         {/* Video background */}
         <div className="absolute inset-0">
