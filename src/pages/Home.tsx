@@ -1,6 +1,3 @@
-// Component imports
-import { Header } from "../components/Header";
-
 // Video imports
 import heroBackground from "../assets/videos/hero-video.mp4";
 
@@ -10,8 +7,6 @@ import heroBackground from "../assets/videos/hero-video.mp4";
 export const Home = () => {
   return (
     <>
-      <Header home />
-
       {/* Hero */}
       <section 
         aria-label="Hero" 
