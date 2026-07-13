@@ -1,39 +1,22 @@
 @import "tailwindcss";
 
-/* Inter custom font */
 @font-face {
   font-family: Inter;
   src: url(./assets/fonts/Inter.ttf);
 }
 
-body {
+html,
+body,
+:root {
   font-family: Inter, Arial, sans-serif;
-  background-color: var(--color-smoke);
-  color: var(--color-night);
 }
 
 @theme {
   --font-inter: Inter;
-
-  --color-chemtek: #88ff00;
-  --color-aqua: #0fffff;
-  --color-night: #1e1b22;
-  --color-night-shade: #141217;
-  --color-smoke: #f5f5f5;
 }
 
-@layer base {
-  
-}
+@layer base {}
 
-@layer components {
-  .p-default {
-    padding: 1rem;
-  }
+@layer components {}
 
-  .hamburger-menu-bar {
-    background-color: var(--color-night);
-    width: 2rem;
-    height: 0.25rem;
-  }
-}
+@layer utilities {}

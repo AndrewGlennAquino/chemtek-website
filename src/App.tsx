@@ -1,15 +1,9 @@
-// Library imports
-
-// Component imports
-import { Header } from "./components/Header";
-
 // Page imports
 import { Home } from "./pages/Home";
 
-const App = () => {
+export function App () {
   return (
     <>
-      <Header />
       <Home />
     </>
   );
