@@ -20,6 +20,10 @@ body,
 
 @layer base {}
 
-@layer components {}
+@layer components {
+  .hamburger-menu {
+    @apply bg-white h-0.5 w-6;
+  }
+}
 
 @layer utilities {}
