@@ -1,7 +1,10 @@
 // Page imports
 import { Home } from "./pages/Home";
 
-export function App () {
+// Component imports
+import { Header } from "./components/Header";
+
+export default function App () {
   return (
     <>
       <Header />
