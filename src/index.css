@@ -24,6 +24,10 @@ body,
   .hamburger-menu {
     @apply bg-white h-0.5 w-6;
   }
+
+  .primary-button {
+    @apply cursor-pointer bg-teal px-4 py-2 rounded-sm;
+  }
 }
 
 @layer utilities {}
