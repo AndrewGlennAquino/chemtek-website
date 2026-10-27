@@ -25,7 +25,7 @@ function DesktopLinkLI({ src, children }: DesktopLinkLIProps) {
 
 export function Header() {
   return (
-    <header className="bg-black text-white w-full p-4 flex gap-4 xl:gap-0 xl:justify-between items-center">
+    <header className="bg-black text-white w-full p-4 lg:px-8 flex gap-4 xl:gap-0 xl:justify-between items-center">
       <MobileNav />
 
       {/* TODO: replace with React Router Links */}

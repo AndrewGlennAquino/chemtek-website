@@ -57,7 +57,7 @@ function HamburgerMenu({ clicked, setClicked }: HamburgerMenuProps) {
 function MobileLinkLI({ src, children }: MobileLinkLIProps) {
   return (
     <motion.li
-      className="cursor-pointer border-b-1 border-white/5 p-4 flex justify-between"
+      className="cursor-pointer border-b-1 border-white/5 p-4 lg:px-8 flex justify-between"
       whileHover="animateHover"
     >
       {/* TODO: replace with React Router Links */}

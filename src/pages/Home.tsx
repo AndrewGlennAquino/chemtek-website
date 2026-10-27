@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <main>
       <section aria-label="hero">
-        <div className="bg-black bg-gradient-to-br from-teal/5 via-teal/20 to-teal/5 px-4 py-16 flex flex-col gap-4">
+        <div className="bg-black bg-gradient-to-br from-teal/5 via-teal/20 to-teal/5 px-4 lg:px-8 py-16 flex flex-col gap-4">
           <p className="text-seafoam">— Commercial Machine Repair</p>
 
           <h1 className="text-white text-3xl font-grotesk font-bold sm:text-5xl">
