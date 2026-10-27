@@ -33,7 +33,7 @@ export function Header() {
         className="cursor-pointer bg-gradient-to-r from-seafoam to-teal px-2 py-1 rounded-sm"
         whileHover={{ scale: 1.05 }}
       >
-        <h1 className="font-grotesk bg-clip-content text-white text-4xl font-bold">
+        <h1 className="font-grotesk bg-clip-content text-white text-2xl font-bold">
           CHEMTEK
         </h1>
       </motion.div>
