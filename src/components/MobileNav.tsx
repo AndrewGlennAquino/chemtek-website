@@ -84,7 +84,7 @@ export function MobileNav() {
       {clicked ? (
         <nav
           className={
-            "xl:hidden overflow-x-clip overflow-y-auto bg-black w-full max-w-100 max-h-screen absolute top-13 left-0 bottom-0"
+            "xl:hidden overflow-x-clip overflow-y-auto bg-black w-full max-w-100 max-h-screen absolute top-20 left-0 bottom-0"
           }
         >
           <ul className="h-full flex flex-col">
