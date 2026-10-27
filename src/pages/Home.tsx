@@ -1,5 +1,5 @@
 /**
- * Home page component that contains video hero, summary of services,
+ * Home page component that contains hero, summary of services, and basic facts
  */
 export const Home = () => {
   return (

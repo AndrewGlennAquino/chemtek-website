@@ -9,6 +9,9 @@ type DesktopLinkLIProps = {
   children: string;
 };
 
+/**
+ * Animated React Router links for desktop navigation
+ */
 function DesktopLinkLI({ src, children }: DesktopLinkLIProps) {
   return (
     <motion.li className="cursor-pointer" whileHover={{ scale: 1.05 }}>
@@ -47,6 +50,7 @@ export function Header() {
         </ul>
       </nav>
 
+      {/* TODO: add functionality to button */}
       <motion.button
         className="hidden xl:block primary-button"
         whileHover={{ scale: 1.05 }}

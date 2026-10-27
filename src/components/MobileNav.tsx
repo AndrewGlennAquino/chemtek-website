@@ -15,6 +15,9 @@ type MobileLinkLIProps = {
   children: string;
 };
 
+/**
+ * Animated hamburger menu button
+ */
 function HamburgerMenu({ clicked, setClicked }: HamburgerMenuProps) {
   return (
     <motion.button
@@ -48,6 +51,9 @@ function HamburgerMenu({ clicked, setClicked }: HamburgerMenuProps) {
   );
 }
 
+/**
+ * Animated React Router links for mobile navigation
+ */
 function MobileLinkLI({ src, children }: MobileLinkLIProps) {
   return (
     <motion.li
@@ -68,6 +74,7 @@ function MobileLinkLI({ src, children }: MobileLinkLIProps) {
 export function MobileNav() {
   const [clicked, setClicked] = useState<boolean>(false);
 
+  // When clicked, disable scrolling on body and isolate scrolling on nav
   useEffect(() => {
     document.body.style.overflow = clicked ? "clip" : "";
 
