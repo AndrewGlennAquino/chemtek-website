@@ -5,6 +5,16 @@
   src: url(./assets/fonts/Inter.ttf);
 }
 
+@font-face {
+  font-family: SpaceGrotesk;
+  src: url(./assets/fonts/SpaceGrotesk.ttf);
+}
+
+@font-face {
+  font-family: IBMPlexMono;
+  src: url(./assets/fonts/IBMPlexMono.ttf);
+}
+
 html,
 body,
 :root {
@@ -13,6 +23,9 @@ body,
 }
 
 @theme {
+  --font-inter: Inter;
+  --font-grotesk: SpaceGrotesk;
+  --font-mono: IBMPlexMono;
   --color-black: oklch(0.2198 0.006 236.84);
   --color-white: oklch(0.9503 0.0063 75.41);
   --color-teal: oklch(0.4966 0.0744 198.71);
