@@ -11,10 +11,7 @@ type DesktopLinkLIProps = {
 
 function DesktopLinkLI({ src, children }: DesktopLinkLIProps) {
   return (
-    <motion.li
-      className="cursor-pointer"
-      whileHover={{ scale: 1.05 }}
-    >
+    <motion.li className="cursor-pointer" whileHover={{ scale: 1.05 }}>
       {/* TODO: replace with React Router Links */}
       <a className="w-full flex justify-between" href={src}>
         {children}
@@ -28,7 +25,15 @@ export function Header() {
     <header className="bg-black text-white w-full p-4 flex gap-4 xl:gap-0 xl:justify-between items-center">
       <MobileNav />
 
-      <div>Header Logo</div>
+      {/* TODO: replace with React Router Links */}
+      <motion.div
+        className="cursor-pointer bg-gradient-to-r from-seafoam to-teal px-2 py-1 rounded-sm"
+        whileHover={{ scale: 1.05 }}
+      >
+        <h1 className="font-grotesk bg-clip-content text-white text-4xl font-bold">
+          CHEMTEK
+        </h1>
+      </motion.div>
 
       {/* Desktop navigation */}
       <nav className="hidden xl:block">
