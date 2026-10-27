@@ -40,7 +40,11 @@ body,
   }
 
   .primary-button {
-    @apply cursor-pointer bg-teal px-4 py-2 rounded-sm;
+    @apply cursor-pointer bg-teal text-white px-4 py-2 rounded-sm;
+  }
+
+  .secondary-button {
+    @apply cursor-pointer bg-transparent text-white border-white border-1 px-4 py-2 rounded-sm;
   }
 }
 
