@@ -30,6 +30,7 @@ body,
   --color-white: oklch(0.9503 0.0063 75.41);
   --color-teal: oklch(0.4966 0.0744 198.71);
   --color-seafoam: oklch(0.7802 0.0999 157.13);
+  --color-offwhite: oklch(0.9728 0.0054 95.1);
 }
 
 @layer base {}
@@ -48,4 +49,8 @@ body,
   }
 }
 
-@layer utilities {}
+@layer utilities {
+  .px-default {
+    @apply px-4 lg:px-8;
+  }
+}
