@@ -2,11 +2,8 @@
 import { motion } from "motion/react";
 
 // Component imports
-import { Card } from "../components/card";
+import { Card } from "../components/Card";
 
-/**
- * Home page component that contains hero, summary of services, and basic facts
- */
 export const Home = () => {
   return (
     <main>
@@ -54,18 +51,16 @@ export const Home = () => {
           <h1 className="text-teal">
             <span className="font-bold">—</span> What We Service
           </h1>
-          <h2 className="font-bold text-2xl lg:text-3xl">FOUR CALLS. ONE CREW.</h2>
+          <h2 className="font-bold text-2xl lg:text-3xl">
+            FOUR CALLS. ONE CREW.
+          </h2>
 
-          <div className="w-full grid grid-row-4 lg:grid-cols-4 gap-4">
-            <Card title="Machine Repair">
-              Diagnostics and repair, fast.
-            </Card>
+          <div className="w-full grid grid-row-4 lg:grid-rows-none lg:grid-cols-4 gap-4">
+            <Card title="Machine Repair">Diagnostics and repair, fast.</Card>
             <Card alt title="Preventitive Maintenance">
               Scheduled plans, fewer surprises.
             </Card>
-            <Card title="Industrial Cleaning">
-              Degreasing and sanitation.
-            </Card>
+            <Card title="Industrial Cleaning">Degreasing and sanitation.</Card>
             <Card alt title="Service Contracts">
               Fixed pricing, priority dispatch.
             </Card>
@@ -74,7 +69,26 @@ export const Home = () => {
       </section>
 
       <section aria-label="Quick Facts">
-        
+        <div className="bg-offwhite px-default">
+          <div className="border-black/25 border-t-1 py-8 grid grid-rows-2 sm:grid-rows-none grid-cols-2 sm:grid-cols-4 gap-4">
+            <div>
+              <h3 className="font-bold text-2xl lg:text-3xl">2025</h3>
+              <p className="text-black/50 text-sm">Founded</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-2xl lg:text-3xl">TBD</h3>
+              <p className="text-black/50 text-sm">Fact</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-2xl lg:text-3xl">TBD</h3>
+              <p className="text-black/50 text-sm">Fact</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-2xl lg:text-3xl">TBD</h3>
+              <p className="text-black/50 text-sm">Fact</p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );
