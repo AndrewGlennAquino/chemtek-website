@@ -31,6 +31,7 @@ body,
   --color-teal: oklch(0.4966 0.0744 198.71);
   --color-seafoam: oklch(0.7802 0.0999 157.13);
   --color-offwhite: oklch(0.9728 0.0054 95.1);
+  --color-gray: oklch(0.2671 0.0114 225.56);
 }
 
 @layer base {}
@@ -46,6 +47,18 @@ body,
 
   .secondary-button {
     @apply cursor-pointer bg-transparent text-white border-white border-1 px-4 py-2 rounded-sm;
+  }
+
+  .form-info {
+    @apply flex flex-col gap-2;
+  }
+
+  .form-label {
+    @apply text-sm;
+  }
+
+  .form-text-input {
+    @apply bg-offwhite border-black/25 border-1 rounded-sm text-sm p-2;
   }
 }
 

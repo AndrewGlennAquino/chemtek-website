@@ -90,6 +90,91 @@ export const Home = () => {
           </div>
         </div>
       </section>
+
+      <section aria-label="Request Service">
+        <div className="bg-gray text-white px-default py-8 lg:py-16 flex flex-col lg:grid lg:grid-cols-3 gap-4">
+          <div className="flex flex-col gap-4">
+            <p className="text-seafoam">
+              <span className="font-bold">—</span> Commercial Machine Repair
+            </p>
+            <h1 className="font-bold text-2xl">TELL US WHAT IS DOWN.</h1>
+            <p className="text-white/75 text-sm">
+              Describe the machine and the problem. We will contact you to
+              confirm details and schedule the visit.
+            </p>
+          </div>
+
+          <form className="bg-[#ffffff] text-black/50 border-seafoam border-t-4 rounded-sm p-4 flex flex-col lg:grid lg:grid-rows-3 lg:grid-cols-2 gap-4 lg:col-start-2 lg:col-end-4">
+            <div className="form-info">
+              <label className="form-label">YOUR NAME</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Full name"
+                className="form-text-input"
+              />
+            </div>
+            <div className="form-info">
+              <label className="form-label">COMPANY</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                required
+                placeholder="Business name"
+                className="form-text-input"
+              />
+            </div>
+            <div className="form-info">
+              <label className="form-label">PHONE</label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                required
+                placeholder="(555) 555-5555"
+                className="form-text-input"
+              />
+            </div>
+            <div className="form-info">
+              <label className="form-label">EMAIL</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                required
+                placeholder="you@company.com"
+                className="form-text-input"
+              />
+            </div>
+            <div className="form-info row-span-1 col-span-full">
+              <label className="form-label">MACHINE</label>
+              <input
+                type="text"
+                id="machine"
+                name="machine"
+                required
+                placeholder="Make, model, or type"
+                className="form-text-input"
+              />
+            </div>
+            <div className="form-info row-span-2 col-span-full">
+              <label className="form-label">WHAT IS WRONG</label>
+              <textarea
+                id="comment"
+                name="comment"
+                required
+                placeholder="Symptoms, malufunctions, when it started"
+                className="form-text-input"
+              />
+            </div>
+            {/* TODO: add button functionality on click */}
+            <button className="primary-button w-full col-span-full">Send Request</button>
+          </form>
+        </div>
+      </section>
     </main>
   );
 };
